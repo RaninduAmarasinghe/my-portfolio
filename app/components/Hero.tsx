@@ -67,7 +67,8 @@ export default function Hero() {
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 mt-8 justify-center lg:justify-start">
             <a
-              href="/cv.pdf"
+              href="/Ranindu_Amarasinghe_Trainee_Software_Engineer.pdf"
+              download
               className="w-full sm:w-auto px-6 py-3 rounded-full bg-white text-black text-sm font-medium hover:scale-105 transition"
             >
               Download CV
