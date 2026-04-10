@@ -113,7 +113,7 @@ export default function Hero() {
 
             {/* Tech stack */}
             <div className="flex flex-wrap gap-2 mb-4">
-              {["Java", "Spring Boot", "MongoDB", "n8n", "AI", "Next.js"].map((tech) => (
+              {["Java", "Spring Boot", "Ollama", "n8n","Docker","Next.js","MongoDB"].map((tech) => (
                 <span
                   key={tech}
                   className="px-2 py-1 text-xs rounded-full bg-white/10 text-gray-200"
