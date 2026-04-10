@@ -10,7 +10,7 @@ export default function AboutPage() {
   return (
     <section className="relative min-h-screen text-white px-6 md:px-24 py-24 md:py-32 overflow-hidden bg-[#0a0a0a]">
 
-      {/*BACK BUTTON */}
+    
       <div className="absolute top-6 left-6 md:left-24 z-20">
         <Link
           href="/"
@@ -27,10 +27,10 @@ export default function AboutPage() {
         </Link>
       </div>
 
-      {/* 🌫️ Soft Gradient */}
+     
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black/50" />
 
-      {/* 🌫️ Apple Glow */}
+      
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_10%,rgba(255,255,255,0.06),transparent_50%)]" />
 
       {/* ABOUT */}
@@ -113,6 +113,12 @@ export default function AboutPage() {
             title="Ai Resume Analyzer"
             desc="AI-powered resume screening backend built with Spring Boot and Spring AI, using local LLMs (Ollama) to analyze resume–job description match and generate improvement insights."
              link="https://github.com/RaninduAmarasinghe/ai-resume-screener.git"
+          />
+
+           <Project
+            title="NPC Verse AI"
+            desc="NPC-Verse AI is a specialized backend framework built with Spring Boot designed to bring non-player characters to life using local Large Language Models (LLMs). By leveraging Ollama and Llama 3.2, this project enables real-time, context-aware, and personality-driven conversations with NPCs without relying on external APIs."
+             link="https://github.com/RaninduAmarasinghe/npcverse-ai.git"
           />
         </div>
       </motion.div>

@@ -25,10 +25,8 @@ export default function Hero() {
           className="object-cover opacity-85 grayscale brightness-110 contrast-105"
         />
 
-        {/* Gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/25 to-black/60" />
 
-        {/* Glow */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(255,255,255,0.05),transparent_40%)]" />
 
         {/* CONTENT */}
@@ -76,14 +74,6 @@ export default function Hero() {
               </Link>
             </div>
 
-            {/* 👇 NEW: Scroll to contact */}
-            <a
-              href="#contact"
-              className="inline-block mt-6 text-sm text-gray-400 hover:text-white transition"
-            >
-              Get in touch ↓
-            </a>
-
             {/* Socials */}
             <div className="flex justify-center lg:justify-start gap-6 text-lg text-gray-300 mt-8">
               <a
@@ -113,8 +103,8 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="w-full max-w-md backdrop-blur-xl bg-white/[0.06] rounded-2xl lg:rounded-3xl p-6 lg:p-8 border border-white/[0.08]"
           >
-            <h2 className="text-lg lg:text-2xl font-medium mb-3">
-              Backend Developer crafting scalable & AI-powered systems
+            <h2 className="text-lg lg:text-3xl font-medium mb-4">
+              Backend Developer
             </h2>
 
             <p className="text-gray-300 text-sm leading-relaxed mb-4">
@@ -153,7 +143,7 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* 👇 Scroll indicator (premium touch) */}
+       
       <div className="hidden md:block absolute bottom-6 left-1/2 -translate-x-1/2 text-xs text-gray-400 animate-bounce">
   Scroll ↓
 </div>
@@ -168,7 +158,7 @@ export default function Hero() {
         viewport={{ once: true }}
         className="relative px-6 md:px-24 py-24 text-white bg-black"
       >
-        {/* Glow background */}
+        
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(255,255,255,0.06),transparent_60%)]" />
 
         <div className="relative max-w-4xl mx-auto text-center">
