@@ -33,7 +33,7 @@ export default function Hero() {
       <div
         className="
         relative z-10 w-full px-6 md:px-16 lg:px-24
-        flex flex-col lg:flex-row   /* 🔥 FIX HERE */
+        flex flex-col lg:flex-row  
         items-center 
         justify-center lg:justify-between 
         gap-12 lg:gap-24 
@@ -95,7 +95,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="
-          w-full max-w-md   /* 🔥 better for tablet */
+          w-full max-w-md  
           backdrop-blur-xl 
           bg-white/[0.06] 
           rounded-2xl lg:rounded-3xl 

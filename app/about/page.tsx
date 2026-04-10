@@ -10,7 +10,7 @@ export default function AboutPage() {
   return (
     <section className="relative min-h-screen text-white px-6 md:px-24 py-24 md:py-32 overflow-hidden bg-[#0a0a0a]">
 
-      {/* 🔙 BACK BUTTON */}
+      {/*BACK BUTTON */}
       <div className="absolute top-6 left-6 md:left-24 z-20">
         <Link
           href="/"
@@ -42,7 +42,6 @@ export default function AboutPage() {
         max-w-3xl mb-24 relative z-10 space-y-6
         "
       >
-        <p className="text-sm text-gray-500">About</p>
 
         <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight">
           Who I Am
@@ -93,19 +92,26 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 max-w-6xl">
           <Project
             title="Home Server Guardian"
-            desc="Smart monitoring system using Spring Boot, n8n, and Telegram."
+            desc="Smart system monitoring and automation platform using Spring Boot, n8n, and Telegram to manage CPU, storage, and background processes in real time."
+             link="https://github.com/RaninduAmarasinghe/home-server-guardian.git"
+            
           />
           <Project
             title="Sentinel Vault AI"
-            desc="Privacy-focused RAG system using Spring Boot and Ollama."
+            desc="A local-first, privacy-focused RAG system for secure document analysis using Spring Boot, Ollama 3.2, and n8n."
+             link="https://github.com/RaninduAmarasinghe/sentinel-vault-ai.git"
           />
-          <Project
-            title="BusBuddy"
-            desc="Real-time transport tracking system using WebSocket and MongoDB."
-          />
+
           <Project
             title="Auradocs AI"
-            desc="AI-powered API documentation and mock engine."
+            desc="An AI-powered API documentation and dynamic mocking engine using Spring Boot, MongoDB, and local LLMs (Ollama)."
+             link="https://github.com/RaninduAmarasinghe/auradocs-ai-mock-engine.git"
+          />
+
+           <Project
+            title="Ai Resume Analyzer"
+            desc="AI-powered resume screening backend built with Spring Boot and Spring AI, using local LLMs (Ollama) to analyze resume–job description match and generate improvement insights."
+             link="https://github.com/RaninduAmarasinghe/ai-resume-screener.git"
           />
         </div>
       </motion.div>
@@ -134,16 +140,19 @@ function Skill({ icon, name }: { icon: React.ReactNode; name: string }) {
 }
 
 /* ---------- PROJECT ---------- */
-function Project({ title, desc }: { title: string; desc: string }) {
+function Project({ title, desc, link }: { title: string; desc: string; link: string }) {
   return (
-    <div
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
       className="
       group p-6 
       rounded-2xl
       bg-white/[0.03]
       hover:bg-white/[0.06]
       transition-all duration-300
-      cursor-pointer
+      cursor-pointer block
       "
     >
       <h3 className="text-white text-lg font-medium mb-2">
@@ -157,6 +166,6 @@ function Project({ title, desc }: { title: string; desc: string }) {
       <div className="mt-4 text-xs text-gray-500 group-hover:text-gray-300 transition">
         View project →
       </div>
-    </div>
+    </a>
   );
 }
