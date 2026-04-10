@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { FaJava, FaReact, FaDocker, FaGitAlt } from "react-icons/fa";
-import { SiSpringboot, SiMongodb, SiPostman } from "react-icons/si";
+import { SiSpringboot, SiMongodb, SiPostman, SiNextdotjs  } from "react-icons/si";
 import { motion } from "framer-motion";
 
 export default function AboutPage() {
@@ -72,6 +72,7 @@ export default function AboutPage() {
         <div className="flex flex-wrap gap-3 max-w-4xl">
           <Skill icon={<FaJava />} name="Java" />
           <Skill icon={<SiSpringboot />} name="Spring Boot" />
+          <Skill icon={<SiNextdotjs />} name="Next.js" />
           <Skill icon={<FaReact />} name="React" />
           <Skill icon={<SiMongodb />} name="MongoDB" />
           <Skill icon={<FaDocker />} name="Docker" />

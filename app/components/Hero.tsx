@@ -40,7 +40,6 @@ export default function Hero() {
         py-16 lg:py-0
       "
       >
-
         {/* LEFT */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -62,7 +61,7 @@ export default function Hero() {
 
           {/* Subtitle */}
           <p className="text-gray-300 mt-4 text-sm lg:text-lg">
-            Backend Developer crafting scalable systems & intelligent solutions.
+           Java & Spring Boot developer focused on scalable architecture, performance, and AI integration
           </p>
 
           {/* Buttons */}
@@ -82,31 +81,26 @@ export default function Hero() {
             </Link>
           </div>
 
-         
-         {/* Socials */}
-<div className="flex justify-center lg:justify-start gap-6 text-lg text-gray-300 mt-8">
+          {/* Socials */}
+          <div className="flex justify-center lg:justify-start gap-6 text-lg text-gray-300 mt-8">
+            <a
+              href="https://github.com/RaninduAmarasinghe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white hover:scale-110 transition duration-300"
+            >
+              <FaGithub />
+            </a>
 
-  <a
-    href="https://github.com/RaninduAmarasinghe"
-    target="_blank"
-    rel="noopener noreferrer"
-    title="GitHub"
-    className="hover:text-white hover:scale-110 transition duration-300"
-  >
-    <FaGithub />
-  </a>
-
-  <a
-    href="https://www.linkedin.com/in/ranindu-amarasinghe/"
-    target="_blank"
-    rel="noopener noreferrer"
-    title="LinkedIn"
-    className="hover:text-white hover:scale-110 transition duration-300"
-  >
-    <FaLinkedin />
-  </a>
-
-</div>
+            <a
+              href="https://www.linkedin.com/in/ranindu-amarasinghe/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white hover:scale-110 transition duration-300"
+            >
+              <FaLinkedin />
+            </a>
+          </div>
         </motion.div>
 
         {/* RIGHT CARD */}
@@ -123,19 +117,19 @@ export default function Hero() {
           border border-white/[0.08]
         "
         >
-          <p className="text-xs lg:text-sm text-gray-300 mb-2">Introducing</p>
-
+          {/* Title */}
           <h2 className="text-lg lg:text-2xl font-medium mb-3">
-            Backend Developer based in Sri Lanka.
+            Backend Developer crafting scalable & AI-powered systems
           </h2>
 
+          {/* Description */}
           <p className="text-gray-300 text-sm leading-relaxed mb-4">
-            Focused on performance, scalability, and integrating modern AI technologies into real-world applications.
+            I build high-performance backend systems using Java and Spring Boot, focused on scalability, automation, and integrating AI into real-world applications.
           </p>
 
           {/* Tech stack */}
-          <div className="flex flex-wrap gap-2">
-            {["Java", "Spring Boot", "MongoDB", "AI"].map((tech) => (
+          <div className="flex flex-wrap gap-2 mb-4">
+            {["Java", "Spring Boot", "MongoDB", "n8n", "AI", "NextJs"].map((tech) => (
               <span
                 key={tech}
                 className="px-2 py-1 text-xs rounded-full bg-white/10 text-gray-200"
@@ -144,13 +138,41 @@ export default function Hero() {
               </span>
             ))}
           </div>
+
+          {/* Divider */}
+          <div className="w-full h-px bg-white/10 my-4" />
+
+          {/* Stats */}
+      {/*    <div className="flex gap-6 text-xs text-gray-300 mb-4">
+            <div>
+              <p className="text-white font-medium">4+</p>
+              <p className="text-gray-400">Projects</p>
+            </div>
+            <div>
+              <p className="text-white font-medium">1+</p>
+              <p className="text-gray-400">Years Exp</p>
+            </div>
+          </div> */}
+
+          {/* Current Work */}
+          <div className="text-xs text-gray-300 mb-4">
+            <p className="text-gray-400">Currently building</p>
+            <p className="text-white">repo-insight-rag
+Public
+</p>
+          </div>
+
+          {/* CTA */}
+       <a
+  href="https://github.com/RaninduAmarasinghe?tab=repositories"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-xs text-gray-400 hover:text-white transition"
+>
+  View my work →
+</a>
         </motion.div>
       </div>
-
-      {/* Scroll hint */}
-   {/*  <div className="hidden lg:block absolute bottom-6 left-1/2 -translate-x-1/2 text-xs text-gray-400 animate-bounce">
-        Scroll
-      </div>  */}
     </div>
   );
 }
