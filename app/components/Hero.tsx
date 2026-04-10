@@ -82,11 +82,31 @@ export default function Hero() {
             </Link>
           </div>
 
-          {/* Socials */}
-          <div className="flex justify-center lg:justify-start gap-6 text-lg text-gray-300 mt-8">
-            <FaGithub className="hover:text-white transition cursor-pointer" />
-            <FaLinkedin className="hover:text-white transition cursor-pointer" />
-          </div>
+         
+         {/* Socials */}
+<div className="flex justify-center lg:justify-start gap-6 text-lg text-gray-300 mt-8">
+
+  <a
+    href="https://github.com/RaninduAmarasinghe"
+    target="_blank"
+    rel="noopener noreferrer"
+    title="GitHub"
+    className="hover:text-white hover:scale-110 transition duration-300"
+  >
+    <FaGithub />
+  </a>
+
+  <a
+    href="https://www.linkedin.com/in/ranindu-amarasinghe/"
+    target="_blank"
+    rel="noopener noreferrer"
+    title="LinkedIn"
+    className="hover:text-white hover:scale-110 transition duration-300"
+  >
+    <FaLinkedin />
+  </a>
+
+</div>
         </motion.div>
 
         {/* RIGHT CARD */}
