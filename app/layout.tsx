@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   description:
     "Backend Developer Trainee building real-world applications using Java and Spring Boot. Focused on scalable backend systems, performance, automation, and AI integration.",
 
-      keywords: [
+  keywords: [
     "Ranindu Amarasinghe",
     "Backend Developer",
     "Java Developer",
@@ -31,12 +32,13 @@ export const metadata: Metadata = {
 
   icons: {
     icon: "/favicon.ico",
-      apple: "/apple-touch-icon.png",
+    apple: "/apple-touch-icon.png",
   },
+
   openGraph: {
     title: "Ranindu Amarasinghe | Backend Developer",
     description:
-      "Backend Developer Trainee building real-world applications using Java and Spring Boot. Focused on scalable backend systems, performance, automation, and AI integration.",
+      "Backend Developer Trainee building real-world applications using Java and Spring Boot.",
     url: "https://ranindu.dev",
     siteName: "Ranindu Portfolio",
     images: [
@@ -47,21 +49,23 @@ export const metadata: Metadata = {
       },
     ],
     type: "website",
-    
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
