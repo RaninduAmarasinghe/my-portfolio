@@ -26,7 +26,6 @@ export default function Hero() {
         />
 
         <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/25 to-black/60" />
-
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(255,255,255,0.05),transparent_40%)]" />
 
         {/* CONTENT */}
@@ -56,31 +55,52 @@ export default function Hero() {
               Java & Spring Boot developer focused on scalable architecture, performance, and AI integration.
             </p>
 
-            {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 mt-8 justify-center lg:justify-start">
+            {/* ================= BUTTONS ================= */}
+            <div className="flex flex-row flex-wrap gap-3 mt-5 justify-center lg:justify-start">
+              
+              {/* Download CV */}
               <a
                 href="/Ranindu_Amarasinghe_Trainee_Software_Engineer.pdf"
                 download
-                className="w-full sm:w-auto px-6 py-3 rounded-full bg-white text-black text-sm font-medium hover:scale-105 transition"
+                className="
+                  px-4 py-2
+                  text-xs sm:text-sm
+                  rounded-full
+                  bg-white text-black
+                  font-medium
+                  shadow-md shadow-white/20
+                  hover:scale-105 active:scale-95
+                  transition
+                "
               >
                 Download CV
               </a>
 
+              {/* About */}
               <Link
                 href="/about"
-                className="w-full sm:w-auto px-6 py-3 rounded-full bg-white/10 text-sm hover:bg-white/20 transition"
+                className="
+                  px-4 py-2
+                  text-xs sm:text-sm
+                  rounded-full
+                  bg-white/15
+                  border border-white/10
+                  hover:bg-white/25
+                  active:scale-95
+                  transition
+                "
               >
                 About me
               </Link>
             </div>
 
-            {/* Socials */}
-            <div className="flex justify-center lg:justify-start gap-6 text-lg text-gray-300 mt-8">
+            {/* ================= SOCIALS ================= */}
+            <div className="flex justify-center lg:justify-start gap-6 text-lg text-gray-300 mt-5">
               <a
                 href="https://github.com/RaninduAmarasinghe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white hover:scale-110 transition duration-300"
+                className="hover:text-white hover:scale-110 active:scale-95 transition duration-300"
               >
                 <FaGithub />
               </a>
@@ -89,7 +109,7 @@ export default function Hero() {
                 href="https://www.linkedin.com/in/ranindu-amarasinghe/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white hover:scale-110 transition duration-300"
+                className="hover:text-white hover:scale-110 active:scale-95 transition duration-300"
               >
                 <FaLinkedin />
               </a>
@@ -128,7 +148,7 @@ export default function Hero() {
             <div className="text-xs text-gray-300 mb-4">
               <p className="text-gray-400">Currently building</p>
               <p className="text-white">
-                Developing a RAG-based system to analyze and understand code repositories <br /> 
+                Developing a RAG-based system to analyze and understand code repositories
               </p>
             </div>
 
@@ -143,60 +163,55 @@ export default function Hero() {
           </motion.div>
         </div>
 
-       
-      <div className="hidden md:block absolute bottom-6 left-1/2 -translate-x-1/2 text-xs text-gray-400 animate-bounce">
-  Scroll ↓
-</div>
+        {/* Scroll */}
+        <div className="hidden md:block absolute bottom-6 left-1/2 -translate-x-1/2 text-xs text-gray-400 animate-bounce">
+          Scroll ↓
+        </div>
       </div>
 
-      {/* ================= CONTACT SECTION ================= */}
-     <motion.section
-  id="contact"
-  initial={{ opacity: 0, y: 60 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8 }}
-  viewport={{ once: true }}
-  className="relative px-6 md:px-24 pt-24 pb-7 text-white bg-black"
->
-
-  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(255,255,255,0.06),transparent_60%)]" />
-
-  {/* CONTACT CONTENT */}
-  <div className="relative max-w-4xl mx-auto text-center">
-    
-    <h2 className="text-3xl md:text-4xl font-semibold mb-4">
-      Get in touch
-    </h2>
-
-    <p className="text-gray-400 mb-8">
-      Open to internship, job, and freelance opportunities. Feel free to reach out.
-    </p>
-
-    <a
-      href="mailto:hello@ranindu.dev"
-      className="inline-block px-8 py-4 rounded-full bg-white text-black font-medium hover:scale-105 transition"
-    >
-      hello@ranindu.dev
-    </a>
-  </div>
-
-  {/* 👇 FOOTER (OUTSIDE CONTENT) */}
-  <footer className="mt-16 text-center text-gray-500 text-xs border-t border-white/5 pt-6">
-    <p>
-      Designed & built by{" "}
-      <a
-        href="https://ranindu.dev"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-gray-300 hover:text-white transition"
+      {/* ================= CONTACT ================= */}
+      <motion.section
+        id="contact"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="relative px-6 md:px-24 pt-24 pb-7 text-white bg-black"
       >
-        Ranindu Amarasinghe
-      </a>{" "}
-      · 2026
-    </p>
-  </footer>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(255,255,255,0.06),transparent_60%)]" />
 
-</motion.section>
+        <div className="relative max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-4">
+            Get in touch
+          </h2>
+
+          <p className="text-gray-400 mb-8">
+            Open to internship, job, and freelance opportunities. Feel free to reach out.
+          </p>
+
+          <a
+            href="mailto:hello@ranindu.dev"
+            className="inline-block px-8 py-4 rounded-full bg-white text-black font-medium hover:scale-105 transition"
+          >
+            hello@ranindu.dev
+          </a>
+        </div>
+
+        <footer className="mt-16 text-center text-gray-500 text-xs border-t border-white/5 pt-6">
+          <p>
+            Designed & built by{" "}
+            <a
+              href="https://ranindu.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-white transition"
+            >
+              Ranindu Amarasinghe
+            </a>{" "}
+            · 2026
+          </p>
+        </footer>
+      </motion.section>
     </>
   );
 }
