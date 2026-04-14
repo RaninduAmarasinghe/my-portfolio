@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,27 +15,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ranindu.dev"),
-  
+
   title: "Ranindu Amarasinghe | Backend Developer",
   description:
-    "Backend Developer Trainee building real-world applications using Java and Spring Boot. Focused on scalable backend systems, performance, automation, and AI integration.",
-
-  keywords: [
-    "Ranindu Amarasinghe",
-    "Backend Developer",
-    "Java Developer",
-    "Spring Boot",
-    "Backend Engineer Sri Lanka",
-    "Software Engineer Portfolio",
-  ],
-
-  authors: [{ name: "Ranindu Amarasinghe" }],
-  creator: "Ranindu Amarasinghe",
-
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
+    "Backend Developer Trainee building real-world applications using Java and Spring Boot.",
 
   openGraph: {
     title: "Ranindu Amarasinghe | Backend Developer",
@@ -66,6 +49,8 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         {children}
+
+        {/* 🔥 Analytics */}
         <Analytics />
       </body>
     </html>
