@@ -52,7 +52,7 @@ export default function Hero() {
 
             {/* Subtitle */}
             <p className="text-gray-300 mt-4 text-sm lg:text-lg max-w-xl">
-              Java & Spring Boot developer focused on scalable architecture, performance, and AI integration.
+             I build backend systems using Java and Spring Boot, and I’m constantly improving by working on real-world projects
             </p>
 
             {/* ================= BUTTONS ================= */}
@@ -128,7 +128,7 @@ export default function Hero() {
             </h2>
 
             <p className="text-gray-300 text-sm leading-relaxed mb-4">
-              I build backend systems using Java and Spring Boot, focused on scalability, automation, and integrating AI into real-world applications.
+              I build backend systems using Java and Spring Boot, focusing on scalability and real-world applications. I’m constantly learning and improving by working on practical projects and exploring new technologies.
             </p>
 
             {/* Tech stack */}

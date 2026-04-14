@@ -48,15 +48,15 @@ export default function AboutPage() {
         </h2>
 
         <p className="text-gray-400 leading-relaxed">
-          I am a Software Engineering graduate passionate about building backend systems that solve real-world problems.
+         I’m a Software Engineering graduate focused on building backend systems that solve real-world problems.
         </p>
 
         <p className="text-gray-400 leading-relaxed">
-          I specialize in Java and Spring Boot, and I enjoy integrating modern AI technologies to create efficient and scalable solutions.
+          I work mainly with Java and Spring Boot, and I enjoy developing scalable applications while exploring modern technologies like AI.
         </p>
 
         <p className="text-gray-400 leading-relaxed">
-          Currently focused on performance optimization, automation, and backend architecture.
+          I’m continuously improving my skills by building practical projects and learning new tools, with a strong focus on performance, automation, and backend architecture.
         </p>
       </motion.div>
 
