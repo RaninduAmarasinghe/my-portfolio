@@ -33,7 +33,6 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
       apple: "/apple-touch-icon.png",
   },
-
   openGraph: {
     title: "Ranindu Amarasinghe | Backend Developer",
     description:
