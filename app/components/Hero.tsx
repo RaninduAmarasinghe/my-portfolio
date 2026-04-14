@@ -150,36 +150,53 @@ export default function Hero() {
       </div>
 
       {/* ================= CONTACT SECTION ================= */}
-      <motion.section
-        id="contact"
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="relative px-6 md:px-24 py-24 text-white bg-black"
+     <motion.section
+  id="contact"
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  viewport={{ once: true }}
+  className="relative px-6 md:px-24 pt-24 pb-7 text-white bg-black"
+>
+
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(255,255,255,0.06),transparent_60%)]" />
+
+  {/* CONTACT CONTENT */}
+  <div className="relative max-w-4xl mx-auto text-center">
+    
+    <h2 className="text-3xl md:text-4xl font-semibold mb-4">
+      Get in touch
+    </h2>
+
+    <p className="text-gray-400 mb-8">
+      Open to internship, job, and freelance opportunities. Feel free to reach out.
+    </p>
+
+    <a
+      href="mailto:hello@ranindu.dev"
+      className="inline-block px-8 py-4 rounded-full bg-white text-black font-medium hover:scale-105 transition"
+    >
+      hello@ranindu.dev
+    </a>
+  </div>
+
+  {/* 👇 FOOTER (OUTSIDE CONTENT) */}
+  <footer className="mt-16 text-center text-gray-500 text-xs border-t border-white/5 pt-6">
+    <p>
+      Designed & built by{" "}
+      <a
+        href="https://ranindu.dev"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-gray-300 hover:text-white transition"
       >
-        
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(255,255,255,0.06),transparent_60%)]" />
+        Ranindu Amarasinghe
+      </a>{" "}
+      · 2026
+    </p>
+  </footer>
 
-        <div className="relative max-w-4xl mx-auto text-center">
-          
-       <h2 className="text-3xl md:text-4xl font-semibold mb-4">
-  Get in touch
-</h2>
-
-<p className="text-gray-400 mb-8">
-  Open to internship, job, and freelance opportunities. Feel free to reach out.
-</p>
-
-          {/* Email */}
-          <a
-            href="mailto:your@email.com"
-            className="inline-block px-8 py-4 rounded-full bg-white text-black font-medium hover:scale-105 transition"
-          >
-           raninduamarasinghe@gmail.com
-          </a>
-        </div>
-      </motion.section>
+</motion.section>
     </>
   );
 }
