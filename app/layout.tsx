@@ -28,9 +28,10 @@ export const metadata: Metadata = {
 
   authors: [{ name: "Ranindu Amarasinghe" }],
   creator: "Ranindu Amarasinghe",
-  
+
   icons: {
     icon: "/favicon.ico",
+      apple: "/apple-touch-icon.png",
   },
 
   openGraph: {
