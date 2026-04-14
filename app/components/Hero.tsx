@@ -128,7 +128,7 @@ export default function Hero() {
             <div className="text-xs text-gray-300 mb-4">
               <p className="text-gray-400">Currently building</p>
               <p className="text-white">
-                repo-insight-rag <br /> 
+                Developing a RAG-based system to analyze and understand code repositories <br /> 
               </p>
             </div>
 
