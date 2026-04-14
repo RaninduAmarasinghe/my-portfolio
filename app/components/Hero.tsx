@@ -11,20 +11,23 @@ export default function Hero() {
 
   return (
     <>
-      {/* ================= HERO ================= */}
+      {/*HERO*/}
       <div
         key={pathname}
         className="relative min-h-screen w-full text-white overflow-hidden flex items-center bg-black"
       >
         {/* Background */}
         <Image
-          src="/hero.jpg"
+          src="/hero.webp" // 🔥 convert your image to webp
           alt="Ranindu"
           fill
           priority
-          className="object-cover opacity-85 grayscale brightness-110 contrast-105"
+          quality={75}
+          sizes="100vw"
+          className="object-cover opacity-80 grayscale brightness-105 contrast-105"
         />
 
+        {/* Overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/25 to-black/60" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(255,255,255,0.05),transparent_40%)]" />
 
@@ -52,49 +55,28 @@ export default function Hero() {
 
             {/* Subtitle */}
             <p className="text-gray-300 mt-4 text-sm lg:text-lg max-w-xl">
-             I build backend systems using Java and Spring Boot, and I’m constantly improving by working on real-world projects
+              I build backend systems using Java and Spring Boot, and I’m constantly improving by working on real-world projects
             </p>
 
-            {/* ================= BUTTONS ================= */}
+            {/* Buttons */}
             <div className="flex flex-row flex-wrap gap-3 mt-5 justify-center lg:justify-start">
-              
-              {/* Download CV */}
               <a
                 href="/Ranindu_Amarasinghe_Trainee_Software_Engineer.pdf"
                 download
-                className="
-                  px-4 py-2
-                  text-xs sm:text-sm
-                  rounded-full
-                  bg-white text-black
-                  font-medium
-                  shadow-md shadow-white/20
-                  hover:scale-105 active:scale-95
-                  transition
-                "
+                className="px-4 py-2 text-xs sm:text-sm rounded-full bg-white text-black font-medium shadow-md shadow-white/20 hover:scale-105 active:scale-95 transition"
               >
                 Download CV
               </a>
 
-              {/* About */}
               <Link
                 href="/about"
-                className="
-                  px-4 py-2
-                  text-xs sm:text-sm
-                  rounded-full
-                  bg-white/15
-                  border border-white/10
-                  hover:bg-white/25
-                  active:scale-95
-                  transition
-                "
+                className="px-4 py-2 text-xs sm:text-sm rounded-full bg-white/15 border border-white/10 hover:bg-white/25 active:scale-95 transition"
               >
                 About me
               </Link>
             </div>
 
-            {/* ================= SOCIALS ================= */}
+            {/* Socials */}
             <div className="flex justify-center lg:justify-start gap-6 text-lg text-gray-300 mt-5">
               <a
                 href="https://github.com/RaninduAmarasinghe"

@@ -146,7 +146,7 @@ function Skill({ icon, name }: { icon: React.ReactNode; name: string }) {
   );
 }
 
-/* ---------- PROJECT ---------- */
+/* PROJECT */
 function Project({ title, desc, link }: { title: string; desc: string; link: string }) {
   return (
     <a
