@@ -14,6 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ranindu.dev"),
+  
   title: "Ranindu Amarasinghe | Backend Developer",
   description:
     "Backend Developer Trainee building real-world applications using Java and Spring Boot. Focused on scalable backend systems, performance, automation, and AI integration.",
