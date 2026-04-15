@@ -16,14 +16,26 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://ranindu.dev"),
 
-  title: "Ranindu Amarasinghe | Backend Developer",
+  title: "Ranindu Amarasinghe | Backend Developer Portfolio",
   description:
-    "Backend Developer Trainee building real-world applications using Java and Spring Boot.",
+    "Ranindu Amarasinghe (Ranidu) is a Backend Developer specializing in Java and Spring Boot. Explore projects, skills, and portfolio.",
+
+  keywords: [
+    "Ranindu Amarasinghe",
+    "Ranindu",
+    "Ranidu",
+    "Ranindu developer",
+    "Backend Developer Sri Lanka",
+    "Java Spring Boot Developer",
+  ],
+
+  authors: [{ name: "Ranindu Amarasinghe" }],
+  creator: "Ranindu Amarasinghe",
 
   openGraph: {
     title: "Ranindu Amarasinghe | Backend Developer",
     description:
-      "Backend Developer Trainee building real-world applications using Java and Spring Boot.",
+      "Portfolio of Ranindu Amarasinghe, a Backend Developer working with Java and Spring Boot.",
     url: "https://ranindu.dev",
     siteName: "Ranindu Portfolio",
     images: [
@@ -34,6 +46,11 @@ export const metadata: Metadata = {
       },
     ],
     type: "website",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
