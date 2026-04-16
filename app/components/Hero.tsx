@@ -168,7 +168,7 @@ export default function Hero() {
           </h2>
 
           <p className="text-gray-400 mb-8">
-            Open to internship, job, and freelance opportunities. Feel free to reach out.
+            Let’s build systems that matter.
           </p>
 
           <a
