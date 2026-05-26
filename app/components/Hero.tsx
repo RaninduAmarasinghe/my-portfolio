@@ -127,12 +127,12 @@ export default function Hero() {
 
             <div className="w-full h-px bg-white/10 my-4" />
 
-            <div className="text-xs text-gray-300 mb-4">
+         { /*  <div className="text-xs text-gray-300 mb-4">
               <p className="text-gray-400">Currently building</p>
               <p className="text-white">
                 Developing a RAG-based system to analyze and understand code repositories
               </p>
-            </div>
+            </div> */} 
 
             <a
               href="https://github.com/RaninduAmarasinghe?tab=repositories"
