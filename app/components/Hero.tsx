@@ -1,199 +1,444 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { usePathname } from "next/navigation";
+import ProjectsCarousel from "./ProjectsCarousel";
+
+const projects = [
+  {
+    number: "01",
+    title: "Home Server Guardian",
+    description:
+      "Monitoring and automation for a healthier and more reliable home server.",
+    link: "https://github.com/RaninduAmarasinghe/home-server-guardian",
+  },
+  {
+    number: "02",
+    title: "Sentinel Vault AI",
+    description:
+      "Private, local-first document analysis powered by Retrieval-Augmented Generation.",
+    link: "https://github.com/RaninduAmarasinghe/sentinel-vault-ai",
+  },
+  {
+    number: "03",
+    title: "Auradocs AI",
+    description:
+      "AI-powered API documentation and dynamic mocking engine for developers.",
+    link: "https://github.com/RaninduAmarasinghe/auradocs-ai-mock-engine",
+  },
+];
+
+const technologies = [
+  "Java",
+  "Spring Boot",
+  "MongoDB",
+  "Docker",
+  "Ollama",
+  "n8n",
+];
 
 export default function Hero() {
-  const pathname = usePathname();
-
   return (
-    <>
-      {/*HERO*/}
-      <div
-        key={pathname}
-        className="relative min-h-screen w-full text-white overflow-hidden flex items-center bg-black"
-      >
-        {/* Background */}
-        <Image
-          src="/hero.webp" // 🔥 convert your image to webp
-          alt="Ranindu"
-          fill
-          priority
-          quality={75}
-          sizes="100vw"
-          className="object-cover opacity-80 grayscale brightness-105 contrast-105"
+    <div className="bg-[#080909] text-white">
+
+      {/* ===================================================== */}
+      {/* HERO */}
+      {/* ===================================================== */}
+
+      <section className="relative min-h-screen overflow-hidden border-b border-white/[0.08]">
+
+        {/* Grid */}
+        <div
+          className="
+            absolute inset-0
+            opacity-[0.18]
+            pointer-events-none
+            bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)]
+            bg-[size:76px_76px]
+          "
         />
 
-        {/* Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/25 to-black/60" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(255,255,255,0.05),transparent_40%)]" />
+        {/* Large geometric circle */}
+        <div
+          className="
+            absolute
+            w-[600px]
+            h-[600px]
+            md:w-[750px]
+            md:h-[750px]
+            rounded-full
+            border
+            border-white/[0.10]
+            bg-[#171b1d]
+            -right-[300px]
+            md:-right-[170px]
+            top-[90px]
+            pointer-events-none
+          "
+        />
 
-        {/* CONTENT */}
-        <div className="relative z-10 w-full px-6 md:px-16 lg:px-24 flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-12 lg:gap-24 py-16 lg:py-0">
-          
-          {/* LEFT */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center lg:text-left max-w-md lg:max-w-2xl"
-          >
-            {/* Status */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full bg-white/5 text-xs text-gray-200">
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+        <div
+          className="
+            absolute
+            w-[520px]
+            h-[520px]
+            rounded-full
+            border
+            border-white/[0.08]
+            -right-[210px]
+            md:-right-[100px]
+            top-[130px]
+            pointer-events-none
+          "
+        />
+
+        {/* Content */}
+        <div
+          className="
+            relative z-10
+            max-w-[1400px]
+            mx-auto
+            px-6 md:px-12 lg:px-16
+            pt-32 md:pt-40
+            pb-24
+            min-h-screen
+            flex items-center
+          "
+        >
+          <div className="w-full">
+
+            {/* Available */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="flex items-center gap-2 text-xs text-gray-400 mb-8"
+            >
+              <span className="w-2 h-2 rounded-full bg-[#9BE51D]" />
               Available for work
-            </div>
+            </motion.div>
 
-            {/* Title */}
-            <h1 className="text-3xl sm:text-4xl lg:text-7xl font-semibold leading-tight">
-              Ranindu <br className="hidden lg:block" />
-              Amarasinghe
-            </h1>
+            <div className="grid lg:grid-cols-[1fr_420px] gap-14 lg:gap-20 items-center">
 
-            {/* Subtitle */}
-            <p className="text-gray-300 mt-4 text-sm lg:text-lg max-w-xl">
-              I build backend systems using Java and Spring Boot, and I’m constantly improving by working on real-world projects
-            </p>
-
-            {/* Buttons */}
-            <div className="flex flex-row flex-wrap gap-3 mt-5 justify-center lg:justify-start">
-              <a
-                href="/Ranindu_Amarasinghe_Trainee_Software_Engineer.pdf"
-                download
-                className="px-4 py-2 text-xs sm:text-sm rounded-full bg-white text-black font-medium shadow-md shadow-white/20 hover:scale-105 active:scale-95 transition"
+              {/* LEFT */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
               >
-                Download CV
-              </a>
 
-              <Link
-                href="/about"
-                className="px-4 py-2 text-xs sm:text-sm rounded-full bg-white/15 border border-white/10 hover:bg-white/25 active:scale-95 transition"
-              >
-                About me
-              </Link>
-            </div>
-
-            {/* Socials */}
-            <div className="flex justify-center lg:justify-start gap-6 text-lg text-gray-300 mt-5">
-              <a
-                href="https://github.com/RaninduAmarasinghe"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white hover:scale-110 active:scale-95 transition duration-300"
-              >
-                <FaGithub />
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/ranindu-amarasinghe/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white hover:scale-110 active:scale-95 transition duration-300"
-              >
-                <FaLinkedin />
-              </a>
-            </div>
-          </motion.div>
-
-          {/* RIGHT CARD */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="w-full max-w-md backdrop-blur-xl bg-white/[0.06] rounded-2xl lg:rounded-3xl p-6 lg:p-8 border border-white/[0.08]"
-          >
-            <h2 className="text-lg lg:text-3xl font-medium mb-4">
-              Backend Developer
-            </h2>
-
-            <p className="text-gray-300 text-sm leading-relaxed mb-4">
-              I build backend systems using Java and Spring Boot, focusing on scalability and real-world applications. I’m constantly learning and improving by working on practical projects and exploring new technologies.
-            </p>
-
-            {/* Tech stack */}
-            <div className="flex flex-wrap gap-2 mb-4">
-              {["Java", "Spring Boot", "Ollama", "n8n","Docker","Next.js","MongoDB"].map((tech) => (
-                <span
-                  key={tech}
-                  className="px-2 py-1 text-xs rounded-full bg-white/10 text-gray-200"
+                <h1
+                  className="
+                    text-[56px]
+                    sm:text-[72px]
+                    md:text-[90px]
+                    lg:text-[92px]
+                    xl:text-[105px]
+                    leading-[0.85]
+                    tracking-[-0.055em]
+                    font-semibold
+                  "
                 >
-                  {tech}
-                </span>
-              ))}
+                  Ranindu
+                  <br />
+
+                  <span
+                    className="
+                      font-serif
+                      italic
+                      font-normal
+                      text-[#9BE51D]
+                    "
+                  >
+                    Amarasinghe
+                  </span>
+                </h1>
+
+                <p
+                  className="
+                    mt-10
+                    max-w-[650px]
+                    text-sm
+                    md:text-base
+                    leading-7
+                    text-gray-400
+                  "
+                >
+                  I build backend systems using Java and Spring Boot,
+                  with a focus on scalable applications, automation,
+                  and real-world impact.
+                </p>
+
+                {/* Buttons */}
+                <div className="flex flex-wrap gap-3 mt-8">
+
+                  <a
+                    href="/Ranindu_Amarasinghe_Trainee_Software_Engineer.pdf"
+                    download
+                    className="
+                      px-5 py-3
+                      bg-white
+                      text-black
+                      text-xs
+                      font-semibold
+                      hover:bg-[#9BE51D]
+                      transition-colors
+                    "
+                  >
+                    Download CV ↓
+                  </a>
+
+                  <Link
+                    href="/about"
+                    className="
+                      px-5 py-3
+                      border
+                      border-white/20
+                      text-xs
+                      text-gray-300
+                      hover:border-white/40
+                      hover:text-white
+                      transition
+                    "
+                  >
+                    About me
+                  </Link>
+                </div>
+
+              </motion.div>
+
+              {/* RIGHT CARD */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.15 }}
+                className="
+                  relative
+                  lg:mt-20
+                  border
+                  border-white/[0.18]
+                  bg-[#181c1e]/80
+                  backdrop-blur-md
+                  p-6
+                  md:p-7
+                "
+              >
+
+                <h2 className="text-xl md:text-2xl font-medium">
+                  Backend Developer
+                </h2>
+
+                <p className="mt-4 text-xs md:text-sm text-gray-400 leading-6">
+                  Building dependable backend services and practical
+                  AI-powered tools while continuously learning through
+                  real projects.
+                </p>
+
+                <div className="flex flex-wrap gap-2 mt-6">
+                  {technologies.map((technology) => (
+                    <span
+                      key={technology}
+                      className="
+                        px-3 py-2
+                        rounded-full
+                        bg-white/[0.10]
+                        text-[10px]
+                        text-gray-300
+                      "
+                    >
+                      {technology}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="h-px bg-white/[0.10] my-6" />
+
+                <a
+                  href="https://github.com/RaninduAmarasinghe?tab=repositories"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    text-xs
+                    text-gray-400
+                    hover:text-[#9BE51D]
+                    transition
+                  "
+                >
+                  View my work →
+                </a>
+
+              </motion.div>
+
             </div>
 
-            <div className="w-full h-px bg-white/10 my-4" />
+          </div>
+        </div>
 
-         { /*  <div className="text-xs text-gray-300 mb-4">
-              <p className="text-gray-400">Currently building</p>
-              <p className="text-white">
-                Developing a RAG-based system to analyze and understand code repositories
-              </p>
-            </div> */} 
+        {/* Scroll */}
+        <div
+          className="
+            absolute
+            bottom-7
+            left-1/2
+            -translate-x-1/2
+            text-[10px]
+            uppercase
+            tracking-[0.25em]
+            text-gray-600
+          "
+        >
+          Scroll ↓
+        </div>
+
+      </section>
+
+
+      {/* ===================================================== */}
+      {/* PROJECTS */}
+      {/* ===================================================== */}
+
+      <section
+        id="projects"
+        className="
+          relative
+          bg-[#0d1011]
+          border-b
+          border-white/[0.06]
+        "
+      >
+
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-20 md:py-24">
+
+          <p
+            className="
+              text-[10px]
+              uppercase
+              tracking-[0.22em]
+              text-gray-500
+              mb-8
+            "
+          >
+            Selected Projects
+          </p>
+          <ProjectsCarousel />
+
+          {/* More projects */}
+          <div className="mt-8 text-right">
 
             <a
               href="https://github.com/RaninduAmarasinghe?tab=repositories"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-gray-400 hover:text-white transition"
+              className="
+                text-xs
+                text-gray-500
+                hover:text-white
+                transition
+              "
             >
-              View my work →
+              View all projects →
             </a>
-          </motion.div>
+
+          </div>
+
         </div>
 
-        {/* Scroll */}
-        <div className="hidden md:block absolute bottom-6 left-1/2 -translate-x-1/2 text-xs text-gray-400 animate-bounce">
-          Scroll ↓
-        </div>
-      </div>
+      </section>
 
-      {/* ================= CONTACT ================= */}
-      <motion.section
+
+      {/* ===================================================== */}
+      {/* CONTACT */}
+      {/* ===================================================== */}
+
+      <section
         id="contact"
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="relative px-6 md:px-24 pt-24 pb-7 text-white bg-black"
+        className="
+          relative
+          bg-[#080909]
+          px-6
+          md:px-12
+          lg:px-16
+          py-28
+          md:py-32
+        "
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(255,255,255,0.06),transparent_60%)]" />
 
-        <div className="relative max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold mb-4">
-            Get in touch
-          </h2>
+        <div className="max-w-[900px] mx-auto text-center">
 
-          <p className="text-gray-400 mb-8">
-            Let’s build systems that matter.
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="
+              text-4xl
+              md:text-6xl
+              lg:text-7xl
+              tracking-[-0.04em]
+              font-medium
+            "
+          >
+            Let's build systems
+            <br />
+            that matter.
+          </motion.h2>
+
+          <p className="mt-7 text-sm text-gray-500">
+            Have a project or opportunity in mind?
           </p>
 
           <a
             href="mailto:hello@ranindu.dev"
-            className="inline-block px-8 py-4 rounded-full bg-white text-black font-medium hover:scale-105 transition"
+            className="
+              inline-flex
+              items-center
+              gap-2
+              mt-8
+              pb-2
+              border-b
+              border-white/40
+              text-sm
+              md:text-base
+              font-medium
+              hover:text-[#9BE51D]
+              hover:border-[#9BE51D]
+              transition
+            "
           >
             hello@ranindu.dev
+            <span>↗</span>
           </a>
+
         </div>
 
-        <footer className="mt-16 text-center text-gray-500 text-xs border-t border-white/5 pt-6">
-          <p>
-            Designed & built by{" "}
-            <a
-              href="https://ranindu.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white transition"
-            >
-              Ranindu Amarasinghe
-            </a>{" "}
-            · 2026
-          </p>
+        <footer
+          className="
+            max-w-[1400px]
+            mx-auto
+            mt-24
+            pt-6
+            border-t
+            border-white/[0.08]
+            flex
+            flex-col
+            md:flex-row
+            justify-between
+            gap-3
+            text-[10px]
+            text-gray-600
+          "
+        >
+          <span>
+            © 2026 Ranindu Amarasinghe
+          </span>
+
+          <span>
+            Software Engineer · Sri Lanka
+          </span>
         </footer>
-      </motion.section>
-    </>
+
+      </section>
+
+    </div>
   );
 }
