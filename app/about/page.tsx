@@ -302,7 +302,7 @@ export default function AboutPage() {
               transition
             "
           >
-            Let's talk ↗
+           Let&apos;s talk
           </a>
 
 
@@ -445,7 +445,7 @@ export default function AboutPage() {
                     font-medium
                   "
                 >
-                  Let's talk ↗
+                 Let&apos;s talk
                 </a>
 
               </nav>

@@ -154,7 +154,7 @@ export default function Navbar() {
             sm:inline-flex
           "
         >
-          Let's talk
+         Let&apos;s talk
 
           <span
             className="
@@ -368,7 +368,7 @@ export default function Navbar() {
                   active:scale-[0.98]
                 "
               >
-                Let's talk
+               Let&apos;s talk
 
                 <span>
                   ↗
