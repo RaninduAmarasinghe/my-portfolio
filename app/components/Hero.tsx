@@ -5,6 +5,10 @@ import { motion, useReducedMotion } from "framer-motion";
 
 import ProjectsCarousel from "./ProjectsCarousel";
 
+/* ============================================================
+   TECHNOLOGIES
+============================================================ */
+
 const technologies = [
   "Java",
   "Spring Boot",
@@ -14,6 +18,10 @@ const technologies = [
   "n8n",
 ];
 
+/* ============================================================
+   HERO
+============================================================ */
+
 export default function Hero() {
   const shouldReduceMotion = useReducedMotion();
 
@@ -22,22 +30,23 @@ export default function Hero() {
       opacity: 0,
       y: shouldReduceMotion ? 0 : 24,
     },
+
     animate: {
       opacity: 1,
       y: 0,
     },
+
     transition: {
       duration: shouldReduceMotion ? 0.2 : 0.7,
-      ease: "easeOut",
     },
   };
 
   return (
     <main className="w-full overflow-x-hidden bg-[#080909] text-white">
 
-      {/* =====================================================
+      {/* ======================================================
           HERO
-      ===================================================== */}
+      ====================================================== */}
 
       <section
         className="
@@ -50,9 +59,9 @@ export default function Hero() {
         "
       >
 
-        {/* =================================================
+        {/* ====================================================
             BACKGROUND GRID
-        ================================================= */}
+        ==================================================== */}
 
         <div
           aria-hidden="true"
@@ -69,9 +78,9 @@ export default function Hero() {
         />
 
 
-        {/* =================================================
+        {/* ====================================================
             RADIAL LIGHT
-        ================================================= */}
+        ==================================================== */}
 
         <div
           aria-hidden="true"
@@ -84,9 +93,9 @@ export default function Hero() {
         />
 
 
-        {/* =================================================
+        {/* ====================================================
             LARGE DECORATIVE CIRCLE
-        ================================================= */}
+        ==================================================== */}
 
         <div
           aria-hidden="true"
@@ -142,9 +151,9 @@ export default function Hero() {
         />
 
 
-        {/* =================================================
+        {/* ====================================================
             HERO CONTENT
-        ================================================= */}
+        ==================================================== */}
 
         <div
           className="
@@ -170,9 +179,9 @@ export default function Hero() {
 
           <div className="w-full">
 
-            {/* =================================================
+            {/* ==================================================
                 STATUS
-            ================================================= */}
+            ================================================== */}
 
             <motion.div
               {...fadeUp}
@@ -206,9 +215,9 @@ export default function Hero() {
             </motion.div>
 
 
-            {/* =================================================
+            {/* ==================================================
                 HERO GRID
-            ================================================= */}
+            ================================================== */}
 
             <div
               className="
@@ -237,7 +246,6 @@ export default function Hero() {
                 }}
                 transition={{
                   duration: shouldReduceMotion ? 0.2 : 0.8,
-                  ease: "easeOut",
                 }}
                 className="min-w-0"
               >
@@ -299,7 +307,7 @@ export default function Hero() {
 
 
                 {/* =================================================
-                    ACTIONS
+                    ACTION BUTTONS
                 ================================================= */}
 
                 <div
@@ -333,6 +341,7 @@ export default function Hero() {
                     "
                   >
                     Download CV
+
                     <span className="ml-2">
                       ↓
                     </span>
@@ -383,7 +392,6 @@ export default function Hero() {
                 transition={{
                   duration: shouldReduceMotion ? 0.2 : 0.8,
                   delay: shouldReduceMotion ? 0 : 0.12,
-                  ease: "easeOut",
                 }}
                 className="
                   relative
@@ -409,7 +417,7 @@ export default function Hero() {
                   "
                 >
 
-                  {/* Small accent */}
+                  {/* Accent line */}
 
                   <div
                     className="
@@ -562,6 +570,7 @@ export default function Hero() {
                     "
                   >
                     View my work
+
                     <span className="ml-2">
                       →
                     </span>
@@ -712,6 +721,7 @@ export default function Hero() {
               "
             >
               View all projects
+
               <span className="ml-2">
                 →
               </span>
@@ -772,6 +782,8 @@ export default function Hero() {
           "
         >
 
+          {/* Label */}
+
           <motion.p
             initial={{
               opacity: 0,
@@ -782,7 +794,7 @@ export default function Hero() {
               y: 0,
             }}
             transition={{
-              duration: 0.5,
+              duration: shouldReduceMotion ? 0.2 : 0.5,
             }}
             viewport={{
               once: true,
@@ -798,6 +810,8 @@ export default function Hero() {
             Contact / 04
           </motion.p>
 
+
+          {/* Heading */}
 
           <motion.h2
             initial={{
@@ -837,6 +851,8 @@ export default function Hero() {
           </motion.h2>
 
 
+          {/* Description */}
+
           <p
             className="
               mx-auto
@@ -850,9 +866,11 @@ export default function Hero() {
             "
           >
             Have a project, opportunity, or idea in mind?
-            Let's talk about it.
+            Let&apos;s talk about it.
           </p>
 
+
+          {/* Email */}
 
           <a
             href="mailto:hello@ranindu.dev"
