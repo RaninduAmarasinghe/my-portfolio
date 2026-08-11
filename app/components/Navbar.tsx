@@ -97,7 +97,7 @@ export default function Navbar() {
               hover:text-white
             "
           >
-            About
+            About Me
           </Link>
 
 
