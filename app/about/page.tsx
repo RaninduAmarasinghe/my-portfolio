@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 import {
   FaJava,
@@ -149,21 +150,37 @@ const technologies = [
 ============================================================ */
 
 export default function AboutPage() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
-    <main className="min-h-screen bg-[#070808] text-white">
+    <main
+      className="
+        min-h-screen
+        w-full
+        overflow-x-hidden
+        bg-[#070808]
+        text-white
+      "
+    >
 
       {/* ======================================================
-          BACKGROUND
+          BACKGROUND GRID
       ====================================================== */}
 
       <div
+        aria-hidden="true"
         className="
           fixed
           inset-0
           pointer-events-none
-          opacity-[0.08]
+          opacity-[0.055]
           bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)]
-          bg-[size:80px_80px]
+          bg-[size:64px_64px]
+          sm:bg-[size:80px_80px]
         "
       />
 
@@ -178,41 +195,54 @@ export default function AboutPage() {
           z-50
           border-b
           border-white/[0.08]
+          bg-[#070808]/90
+          backdrop-blur-xl
         "
       >
 
         <div
           className="
+            relative
             max-w-[1400px]
             mx-auto
-            px-6
+            px-5
+            sm:px-6
             md:px-12
             lg:px-16
-            h-20
+            h-[68px]
+            sm:h-20
             flex
             items-center
             justify-between
           "
         >
 
+          {/* Logo */}
+
           <Link
             href="/"
+            onClick={closeMenu}
             className="
-              text-xl
+              text-lg
+              sm:text-xl
               font-semibold
               tracking-tight
+              min-w-[44px]
             "
           >
             RA<span className="text-[#9BE51D]">.</span>
           </Link>
 
 
+          {/* Desktop navigation */}
+
           <nav
             className="
               hidden
               md:flex
               items-center
-              gap-10
+              gap-8
+              lg:gap-10
               text-xs
               text-gray-500
             "
@@ -220,21 +250,30 @@ export default function AboutPage() {
 
             <Link
               href="/about"
-              className="text-white"
+              className="
+                text-white
+                transition
+              "
             >
               About
             </Link>
 
             <Link
               href="/#projects"
-              className="hover:text-white transition"
+              className="
+                hover:text-white
+                transition
+              "
             >
               Projects
             </Link>
 
             <Link
               href="/#contact"
-              className="hover:text-white transition"
+              className="
+                hover:text-white
+                transition
+              "
             >
               Contact
             </Link>
@@ -242,9 +281,15 @@ export default function AboutPage() {
           </nav>
 
 
+          {/* Desktop contact */}
+
           <a
             href="mailto:hello@ranindu.dev"
             className="
+              hidden
+              sm:inline-flex
+              items-center
+              justify-center
               px-4
               py-2
               border
@@ -260,7 +305,156 @@ export default function AboutPage() {
             Let's talk ↗
           </a>
 
+
+          {/* Mobile menu button */}
+
+          <button
+            type="button"
+            aria-label={
+              menuOpen
+                ? "Close navigation menu"
+                : "Open navigation menu"
+            }
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="
+              md:hidden
+              flex
+              items-center
+              justify-center
+              w-10
+              h-10
+              rounded-full
+              border
+              border-white/10
+              text-gray-300
+              hover:border-[#9BE51D]/50
+              hover:text-[#9BE51D]
+              transition
+            "
+          >
+
+            <span className="text-lg leading-none">
+              {menuOpen ? "×" : "☰"}
+            </span>
+
+          </button>
+
         </div>
+
+
+        {/* ==================================================
+            MOBILE MENU
+        ================================================== */}
+
+        <AnimatePresence>
+
+          {menuOpen && (
+
+            <motion.div
+              initial={{
+                opacity: 0,
+                height: 0,
+              }}
+              animate={{
+                opacity: 1,
+                height: "auto",
+              }}
+              exit={{
+                opacity: 0,
+                height: 0,
+              }}
+              transition={{
+                duration: 0.25,
+              }}
+              className="
+                md:hidden
+                overflow-hidden
+                border-t
+                border-white/[0.06]
+                bg-[#070808]
+              "
+            >
+
+              <nav
+                className="
+                  px-5
+                  sm:px-6
+                  py-5
+                  flex
+                  flex-col
+                "
+              >
+
+                <Link
+                  href="/about"
+                  onClick={closeMenu}
+                  className="
+                    py-3
+                    text-sm
+                    text-white
+                    border-b
+                    border-white/[0.06]
+                  "
+                >
+                  About
+                </Link>
+
+                <Link
+                  href="/#projects"
+                  onClick={closeMenu}
+                  className="
+                    py-3
+                    text-sm
+                    text-gray-400
+                    border-b
+                    border-white/[0.06]
+                  "
+                >
+                  Projects
+                </Link>
+
+                <Link
+                  href="/#contact"
+                  onClick={closeMenu}
+                  className="
+                    py-3
+                    text-sm
+                    text-gray-400
+                    border-b
+                    border-white/[0.06]
+                  "
+                >
+                  Contact
+                </Link>
+
+                <a
+                  href="mailto:hello@ranindu.dev"
+                  onClick={closeMenu}
+                  className="
+                    mt-4
+                    inline-flex
+                    items-center
+                    justify-center
+                    px-4
+                    py-3
+                    rounded-full
+                    bg-[#9BE51D]
+                    text-black
+                    text-xs
+                    font-medium
+                  "
+                >
+                  Let's talk ↗
+                </a>
+
+              </nav>
+
+            </motion.div>
+
+          )}
+
+        </AnimatePresence>
 
       </header>
 
@@ -275,61 +469,92 @@ export default function AboutPage() {
           className="
             max-w-[1400px]
             mx-auto
-            px-6
+            px-5
+            sm:px-6
             md:px-12
             lg:px-16
-            py-16
+            py-14
+            sm:py-16
             md:py-24
+            lg:py-28
           "
         >
 
-          <div className="flex items-center gap-4 mb-12">
+          {/* Section heading */}
+
+          <div
+            className="
+              flex
+              items-center
+              gap-3
+              sm:gap-4
+              mb-10
+              sm:mb-12
+            "
+          >
 
             <span
               className="
-                text-[10px]
+                shrink-0
+                text-[9px]
+                sm:text-[10px]
                 text-[#9BE51D]
-                tracking-[0.2em]
+                tracking-[0.16em]
+                sm:tracking-[0.2em]
               "
             >
               PROFILE / 01
             </span>
 
-            <div className="h-px bg-white/[0.12] flex-1" />
+            <div
+              className="
+                h-px
+                bg-white/[0.12]
+                flex-1
+              "
+            />
 
           </div>
 
+
+          {/* Profile */}
 
           <div
             className="
               grid
               lg:grid-cols-[1fr_430px]
-              gap-16
+              gap-12
+              md:gap-16
+              lg:gap-20
               items-center
             "
           >
 
-            {/* TEXT */}
+            {/* ==================================================
+                TEXT
+            ================================================== */}
 
             <motion.div
               initial={{
                 opacity: 0,
-                y: 25,
+                y: 20,
               }}
               animate={{
                 opacity: 1,
                 y: 0,
               }}
               transition={{
-                duration: 0.7,
+                duration: 0.65,
               }}
             >
 
               <p
                 className="
-                  text-xs
+                  text-[10px]
+                  sm:text-xs
                   text-gray-600
-                  mb-6
+                  mb-5
+                  sm:mb-6
                   tracking-[0.15em]
                 "
               >
@@ -339,12 +564,15 @@ export default function AboutPage() {
 
               <h1
                 className="
-                  text-6xl
+                  text-[52px]
+                  xs:text-[56px]
+                  sm:text-7xl
                   md:text-8xl
                   lg:text-[100px]
                   font-semibold
-                  leading-[0.82]
-                  tracking-[-0.06em]
+                  leading-[0.84]
+                  tracking-[-0.065em]
+                  break-words
                 "
               >
                 RANINDU
@@ -366,11 +594,14 @@ export default function AboutPage() {
 
               <p
                 className="
-                  mt-10
+                  mt-8
+                  sm:mt-10
                   max-w-[650px]
-                  text-base
+                  text-[15px]
+                  sm:text-base
                   md:text-lg
-                  leading-8
+                  leading-7
+                  sm:leading-8
                   text-gray-400
                 "
               >
@@ -381,10 +612,13 @@ export default function AboutPage() {
 
               <p
                 className="
-                  mt-5
+                  mt-4
+                  sm:mt-5
                   max-w-[600px]
-                  text-sm
-                  leading-7
+                  text-[13px]
+                  sm:text-sm
+                  leading-6
+                  sm:leading-7
                   text-gray-600
                 "
               >
@@ -396,21 +630,29 @@ export default function AboutPage() {
             </motion.div>
 
 
-            {/* PHOTO */}
+            {/* ==================================================
+                PHOTO
+            ================================================== */}
 
             <motion.div
               initial={{
                 opacity: 0,
-                scale: 0.96,
+                scale: 0.98,
               }}
               animate={{
                 opacity: 1,
                 scale: 1,
               }}
               transition={{
-                duration: 0.8,
+                duration: 0.75,
               }}
-              className="relative"
+              className="
+                relative
+                w-full
+                max-w-[430px]
+                mx-auto
+                lg:mx-0
+              "
             >
 
               <div
@@ -428,7 +670,12 @@ export default function AboutPage() {
                   src="/hero.webp"
                   alt="Ranindu Amarasinghe"
                   fill
-                  sizes="430px"
+                  priority
+                  sizes="
+                    (max-width: 640px) 90vw,
+                    (max-width: 1024px) 70vw,
+                    430px
+                  "
                   className="
                     object-cover
                     grayscale
@@ -458,16 +705,22 @@ export default function AboutPage() {
                   right-4
                   flex
                   justify-between
-                  text-[9px]
+                  text-[8px]
+                  sm:text-[9px]
                   uppercase
-                  tracking-[0.2em]
+                  tracking-[0.16em]
+                  sm:tracking-[0.2em]
                   text-gray-400
                 "
               >
 
-                <span>Ranindu</span>
+                <span>
+                  Ranindu
+                </span>
 
-                <span>2026</span>
+                <span>
+                  2026
+                </span>
 
               </div>
 
@@ -476,13 +729,17 @@ export default function AboutPage() {
           </div>
 
 
-          {/* INFO */}
+          {/* ==================================================
+              INFO STRIP
+          ================================================== */}
 
           <div
             className="
               grid
-              md:grid-cols-3
-              mt-16
+              grid-cols-1
+              sm:grid-cols-3
+              mt-10
+              sm:mt-16
               border
               border-white/[0.12]
             "
@@ -529,10 +786,12 @@ export default function AboutPage() {
           className="
             max-w-[1400px]
             mx-auto
-            px-6
+            px-5
+            sm:px-6
             md:px-12
             lg:px-16
-            py-16
+            py-14
+            sm:py-16
             md:py-24
           "
         >
@@ -543,49 +802,71 @@ export default function AboutPage() {
             className="
               flex
               items-center
-              gap-4
-              mb-14
+              gap-3
+              sm:gap-4
+              mb-10
+              sm:mb-14
             "
           >
 
             <span
               className="
-                text-[10px]
+                shrink-0
+                text-[9px]
+                sm:text-[10px]
                 text-[#9BE51D]
-                tracking-[0.2em]
+                tracking-[0.16em]
+                sm:tracking-[0.2em]
               "
             >
               TECH STACK / 02
             </span>
 
-            <div className="h-px bg-white/[0.12] flex-1" />
+            <div
+              className="
+                h-px
+                bg-white/[0.12]
+                flex-1
+              "
+            />
 
           </div>
 
 
           {/* Intro */}
 
-          <div className="max-w-[650px]">
+          <div
+            className="
+              max-w-[700px]
+            "
+          >
 
             <h2
               className="
                 text-3xl
+                sm:text-4xl
                 md:text-5xl
                 font-medium
-                tracking-tight
+                tracking-[-0.04em]
+                leading-tight
               "
             >
-              Tools I use to
+              Tools I use to{" "}
+
               <span className="text-[#9BE51D]">
-                {" "}build things.
+                build things.
               </span>
             </h2>
 
+
             <p
               className="
-                mt-5
-                text-sm
-                leading-7
+                mt-4
+                sm:mt-5
+                text-[13px]
+                sm:text-sm
+                leading-6
+                sm:leading-7
                 text-gray-600
               "
             >
@@ -597,15 +878,19 @@ export default function AboutPage() {
           </div>
 
 
-          {/* Technology cloud */}
+          {/* ==================================================
+              TECHNOLOGY CLOUD
+          ================================================== */}
 
           <div
             className="
-              mt-14
+              mt-10
+              sm:mt-14
               flex
               flex-wrap
               items-center
-              gap-3
+              gap-2
+              sm:gap-3
               md:gap-4
               max-w-[1100px]
             "
@@ -618,24 +903,26 @@ export default function AboutPage() {
                   key={technology.name}
                   initial={{
                     opacity: 0,
-                    y: 15,
+                    y: 10,
                   }}
                   whileInView={{
                     opacity: 1,
                     y: 0,
                   }}
                   transition={{
-                    duration: 0.4,
-                    delay: index * 0.035,
+                    duration: 0.35,
+                    delay: index * 0.025,
                   }}
                   viewport={{
                     once: true,
+                    margin: "-30px",
                   }}
                   className={`
                     group
                     flex
                     items-center
-                    gap-3
+                    gap-2
+                    sm:gap-3
                     rounded-full
                     border
                     transition-all
@@ -645,20 +932,26 @@ export default function AboutPage() {
                     ${
                       technology.featured
                         ? `
-                          px-6
-                          py-3.5
+                          px-4
+                          py-2.5
+                          sm:px-6
+                          sm:py-3.5
                           border-[#9BE51D]/40
                           bg-[#9BE51D]/[0.06]
                           text-gray-200
-                          text-sm
+                          text-xs
+                          sm:text-sm
                         `
                         : `
-                          px-4
-                          py-2.5
+                          px-3
+                          py-2
+                          sm:px-4
+                          sm:py-2.5
                           border-white/[0.10]
                           bg-white/[0.025]
                           text-gray-500
-                          text-xs
+                          text-[11px]
+                          sm:text-xs
                         `
                     }
 
@@ -669,25 +962,35 @@ export default function AboutPage() {
                 >
 
                   {technology.icon ? (
+
                     <span
                       className="
                         text-[#9BE51D]
+                        text-sm
+                        sm:text-base
                         group-hover:scale-110
                         transition
                       "
                     >
                       {technology.icon}
                     </span>
+
                   ) : (
+
                     <span
                       className="
-                        w-1.5
-                        h-1.5
+                        w-1
+                        h-1
+                        sm:w-1.5
+                        sm:h-1.5
+                        shrink-0
                         rounded-full
                         bg-[#9BE51D]
                       "
                     />
+
                   )}
+
 
                   <span>
                     {technology.name}
@@ -701,20 +1004,27 @@ export default function AboutPage() {
           </div>
 
 
-          {/* Bottom line */}
+          {/* Bottom status */}
 
           <div
             className="
-              mt-14
+              mt-10
+              sm:mt-14
               flex
               items-center
-              gap-4
-              text-[10px]
+              gap-3
+              text-[9px]
+              sm:text-[10px]
               text-gray-600
             "
           >
 
-            <span className="text-[#9BE51D]">
+            <span
+              className="
+                text-[#9BE51D]
+                text-[8px]
+              "
+            >
               ●
             </span>
 
@@ -733,47 +1043,78 @@ export default function AboutPage() {
           PROJECTS
       ====================================================== */}
 
-      <section className="relative z-10">
+      <section
+        id="projects"
+        className="
+          relative
+          z-10
+          scroll-mt-20
+        "
+      >
 
         <div
           className="
             max-w-[1400px]
             mx-auto
-            px-6
+            px-5
+            sm:px-6
             md:px-12
             lg:px-16
-            py-16
+            py-14
+            sm:py-16
             md:py-24
           "
         >
+
+          {/* Heading */}
 
           <div
             className="
               flex
               items-center
-              gap-4
-              mb-12
+              gap-3
+              sm:gap-4
+              mb-10
+              sm:mb-12
             "
           >
 
             <span
               className="
-                text-[10px]
+                shrink-0
+                text-[9px]
+                sm:text-[10px]
                 text-[#9BE51D]
-                tracking-[0.2em]
+                tracking-[0.16em]
+                sm:tracking-[0.2em]
               "
             >
               PROJECT LOG / 03
             </span>
 
-            <div className="h-px bg-white/[0.12] flex-1" />
+            <div
+              className="
+                h-px
+                bg-white/[0.12]
+                flex-1
+              "
+            />
 
-            <span className="text-[10px] text-gray-600">
+            <span
+              className="
+                shrink-0
+                text-[9px]
+                sm:text-[10px]
+                text-gray-600
+              "
+            >
               {projects.length} PROJECTS
             </span>
 
           </div>
 
+
+          {/* Project list */}
 
           <div
             className="
@@ -792,27 +1133,33 @@ export default function AboutPage() {
                   rel="noopener noreferrer"
                   initial={{
                     opacity: 0,
-                    y: 15,
+                    y: 12,
                   }}
                   whileInView={{
                     opacity: 1,
                     y: 0,
                   }}
                   transition={{
-                    duration: 0.45,
-                    delay: index * 0.05,
+                    duration: 0.4,
+                    delay: index * 0.04,
                   }}
                   viewport={{
                     once: true,
+                    margin: "-30px",
                   }}
                   className="
                     group
                     grid
+                    grid-cols-[36px_1fr]
                     md:grid-cols-[70px_1fr_180px_25px]
-                    gap-5
-                    items-center
-                    py-7
-                    px-3
+                    gap-3
+                    sm:gap-4
+                    md:gap-5
+                    items-start
+                    py-6
+                    sm:py-7
+                    px-2
+                    sm:px-3
                     border-b
                     border-white/[0.08]
                     hover:bg-white/[0.025]
@@ -820,9 +1167,13 @@ export default function AboutPage() {
                   "
                 >
 
+                  {/* Number */}
+
                   <span
                     className="
-                      text-[10px]
+                      pt-1
+                      text-[9px]
+                      sm:text-[10px]
                       text-[#9BE51D]
                     "
                   >
@@ -830,36 +1181,113 @@ export default function AboutPage() {
                   </span>
 
 
-                  <div>
+                  {/* Main content */}
 
-                    <h3
+                  <div
+                    className="
+                      min-w-0
+                    "
+                  >
+
+                    <div
                       className="
-                        text-base
-                        md:text-lg
-                        font-medium
-                        group-hover:text-[#9BE51D]
-                        transition
+                        flex
+                        items-start
+                        justify-between
+                        gap-3
                       "
                     >
-                      {project.title}
-                    </h3>
+
+                      <h3
+                        className="
+                          text-[15px]
+                          sm:text-base
+                          md:text-lg
+                          font-medium
+                          leading-6
+                          group-hover:text-[#9BE51D]
+                          transition
+                        "
+                      >
+                        {project.title}
+                      </h3>
+
+
+                      {/* Mobile arrow */}
+
+                      <span
+                        className="
+                          md:hidden
+                          shrink-0
+                          text-gray-600
+                          group-hover:text-[#9BE51D]
+                          transition
+                        "
+                      >
+                        ↗
+                      </span>
+
+                    </div>
 
 
                     <p
                       className="
                         mt-2
-                        text-xs
+                        text-[11px]
+                        sm:text-xs
                         leading-5
                         text-gray-600
+                        max-w-[700px]
                       "
                     >
                       {project.description}
                     </p>
 
+
+                    {/* Mobile stack */}
+
+                    <div
+                      className="
+                        mt-3
+                        md:hidden
+                        flex
+                        items-center
+                        gap-2
+                      "
+                    >
+
+                      <span
+                        className="
+                          text-[8px]
+                          tracking-[0.15em]
+                          text-gray-700
+                        "
+                      >
+                        STACK
+                      </span>
+
+                      <span
+                        className="
+                          text-[10px]
+                          text-gray-500
+                        "
+                      >
+                        {project.stack}
+                      </span>
+
+                    </div>
+
                   </div>
 
 
-                  <div>
+                  {/* Desktop stack */}
+
+                  <div
+                    className="
+                      hidden
+                      md:block
+                    "
+                  >
 
                     <p
                       className="
@@ -884,8 +1312,12 @@ export default function AboutPage() {
                   </div>
 
 
+                  {/* Desktop arrow */}
+
                   <span
                     className="
+                      hidden
+                      md:block
                       text-gray-600
                       group-hover:text-[#9BE51D]
                       transition
@@ -924,10 +1356,12 @@ export default function AboutPage() {
           className="
             max-w-[1400px]
             mx-auto
-            px-6
+            px-5
+            sm:px-6
             md:px-12
             lg:px-16
-            py-16
+            py-14
+            sm:py-16
             md:py-20
           "
         >
@@ -936,7 +1370,8 @@ export default function AboutPage() {
             className="
               grid
               md:grid-cols-[250px_1fr]
-              gap-10
+              gap-8
+              md:gap-10
             "
           >
 
@@ -944,9 +1379,11 @@ export default function AboutPage() {
 
               <p
                 className="
-                  text-[10px]
+                  text-[9px]
+                  sm:text-[10px]
                   text-[#9BE51D]
-                  tracking-[0.2em]
+                  tracking-[0.16em]
+                  sm:tracking-[0.2em]
                 "
               >
                 CURRENTLY EXPLORING
@@ -954,8 +1391,10 @@ export default function AboutPage() {
 
               <p
                 className="
-                  mt-3
-                  text-[10px]
+                  mt-2
+                  sm:mt-3
+                  text-[9px]
+                  sm:text-[10px]
                   text-gray-600
                 "
               >
@@ -970,9 +1409,10 @@ export default function AboutPage() {
               <h2
                 className="
                   text-2xl
+                  sm:text-3xl
                   md:text-4xl
                   font-medium
-                  tracking-tight
+                  tracking-[-0.035em]
                   leading-tight
                 "
               >
@@ -1000,9 +1440,11 @@ export default function AboutPage() {
 
               <p
                 className="
-                  mt-6
-                  text-sm
-                  leading-7
+                  mt-5
+                  text-[13px]
+                  sm:text-sm
+                  leading-6
+                  sm:leading-7
                   text-gray-600
                   max-w-[650px]
                 "
@@ -1026,21 +1468,27 @@ export default function AboutPage() {
       ====================================================== */}
 
       <section
+        id="contact"
         className="
           relative
           z-10
-          py-28
+          scroll-mt-20
+          py-24
+          sm:py-28
           md:py-36
-          px-6
+          px-5
+          sm:px-6
           text-center
         "
       >
 
         <p
           className="
-            text-[10px]
+            text-[9px]
+            sm:text-[10px]
             uppercase
-            tracking-[0.3em]
+            tracking-[0.25em]
+            sm:tracking-[0.3em]
             text-gray-600
           "
         >
@@ -1050,12 +1498,15 @@ export default function AboutPage() {
 
         <h2
           className="
-            mt-6
+            mt-5
+            sm:mt-6
             text-4xl
+            sm:text-5xl
             md:text-6xl
             lg:text-7xl
             font-medium
-            tracking-[-0.05em]
+            tracking-[-0.055em]
+            leading-[0.95]
           "
         >
           Have an idea?
@@ -1072,15 +1523,20 @@ export default function AboutPage() {
           href="mailto:hello@ranindu.dev"
           className="
             inline-flex
-            mt-10
+            mt-8
+            sm:mt-10
             items-center
             gap-2
-            text-sm
-            border-b
-            border-white/30
-            pb-2
-            hover:text-[#9BE51D]
+            px-5
+            py-3
+            rounded-full
+            border
+            border-white/20
+            text-xs
+            sm:text-sm
+            text-gray-300
             hover:border-[#9BE51D]
+            hover:text-[#9BE51D]
             transition
           "
         >
@@ -1098,7 +1554,8 @@ export default function AboutPage() {
         className="
           max-w-[1400px]
           mx-auto
-          px-6
+          px-5
+          sm:px-6
           md:px-12
           lg:px-16
           py-6
@@ -1106,10 +1563,12 @@ export default function AboutPage() {
           border-white/[0.08]
           flex
           flex-col
-          md:flex-row
+          sm:flex-row
+          sm:items-center
           justify-between
-          gap-3
-          text-[10px]
+          gap-4
+          text-[9px]
+          sm:text-[10px]
           text-gray-600
         "
       >
@@ -1119,13 +1578,22 @@ export default function AboutPage() {
         </span>
 
 
-        <div className="flex gap-6">
+        <div
+          className="
+            flex
+            gap-5
+            sm:gap-6
+          "
+        >
 
           <a
             href="https://github.com/RaninduAmarasinghe"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-white transition"
+            className="
+              hover:text-white
+              transition
+            "
           >
             GitHub ↗
           </a>
@@ -1135,7 +1603,10 @@ export default function AboutPage() {
             href="https://www.linkedin.com/in/ranindu-amarasinghe/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-white transition"
+            className="
+              hover:text-white
+              transition
+            "
           >
             LinkedIn ↗
           </a>
@@ -1165,11 +1636,13 @@ function InfoBox({
   return (
     <div
       className="
-        px-6
-        py-6
+        px-5
+        sm:px-6
+        py-5
+        sm:py-6
         border-b
-        md:border-b-0
-        md:border-r
+        sm:border-b-0
+        sm:border-r
         last:border-r-0
         border-white/[0.10]
       "
@@ -1177,8 +1650,10 @@ function InfoBox({
 
       <p
         className="
-          text-[9px]
-          tracking-[0.2em]
+          text-[8px]
+          sm:text-[9px]
+          tracking-[0.18em]
+          sm:tracking-[0.2em]
           text-gray-600
         "
       >
@@ -1188,8 +1663,10 @@ function InfoBox({
 
       <p
         className={`
-          mt-3
-          text-sm
+          mt-2
+          sm:mt-3
+          text-xs
+          sm:text-sm
           ${
             accent
               ? "text-[#9BE51D]"
