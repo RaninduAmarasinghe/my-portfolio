@@ -22,6 +22,8 @@ export const allProjectsQuery = groq`
       "number": select(defined(order) => string(order), "--"),
       title,
       description,
+      github,
+      technologies,
       "link": coalesce(github, demo)
     }
 `;

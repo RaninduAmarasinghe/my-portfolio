@@ -731,7 +731,7 @@ export default function AboutClient({
               (project, index) => (
                 <motion.a
                   key={project._id}
-                  href={project.github || "#"}
+                  href={project.github || undefined}
                   target={
                     project.github
                       ? "_blank"
