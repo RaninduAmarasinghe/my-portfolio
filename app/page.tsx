@@ -1,19 +1,23 @@
-"use client";
+import { client } from "../sanity/lib/client";
+import {
+  allArticlesQuery,
+  allProjectsQuery,
+} from "../sanity/lib/queries";
 
-import { useState } from "react";
 import Hero from "./components/Hero";
-import Navbar from "./components/Navbar";
-import LoadingScreen from "./components/LoadingScreen";
 
-export default function Home() {
-  const [loading, setLoading] = useState(true);
+export const revalidate = 60;
+
+export default async function HomePage() {
+  const [articles, projects] = await Promise.all([
+    client.fetch(allArticlesQuery),
+    client.fetch(allProjectsQuery),
+  ]);
 
   return (
-    <main className="relative min-h-screen">
-      {loading && <LoadingScreen />}
-
-      <Navbar />
-      <Hero />
-    </main>
+    <Hero
+      articles={articles}
+      projects={projects}
+    />
   );
 }

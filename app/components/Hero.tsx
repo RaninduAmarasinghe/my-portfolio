@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 
+import Articles from "./Articles";
 import ProjectsCarousel from "./ProjectsCarousel";
 
-/* ============================================================
-   TECHNOLOGIES
-============================================================ */
+import type { Article } from "../types/article";
+import type { Project } from "../types/project";
 
 const technologies = [
   "Java",
@@ -18,11 +18,15 @@ const technologies = [
   "n8n",
 ];
 
-/* ============================================================
-   HERO
-============================================================ */
+type HeroProps = {
+  articles: Article[];
+  projects: Project[];
+};
 
-export default function Hero() {
+export default function Hero({
+  articles,
+  projects,
+}: HeroProps) {
   const shouldReduceMotion = useReducedMotion();
 
   const fadeUp = {
@@ -102,24 +106,24 @@ export default function Hero() {
           className="
             pointer-events-none
             absolute
-            w-[420px]
             h-[420px]
+            w-[420px]
             rounded-full
             border
             border-white/[0.08]
             bg-[#15191a]
             -right-[230px]
             top-[150px]
-            sm:w-[560px]
             sm:h-[560px]
+            sm:w-[560px]
             sm:-right-[280px]
             sm:top-[120px]
-            md:w-[700px]
             md:h-[700px]
+            md:w-[700px]
             md:-right-[300px]
             md:top-[100px]
-            lg:w-[760px]
             lg:h-[760px]
+            lg:w-[760px]
             lg:-right-[190px]
           "
         />
@@ -129,23 +133,23 @@ export default function Hero() {
           className="
             pointer-events-none
             absolute
-            w-[330px]
             h-[330px]
+            w-[330px]
             rounded-full
             border
             border-white/[0.07]
             -right-[175px]
             top-[195px]
-            sm:w-[470px]
             sm:h-[470px]
+            sm:w-[470px]
             sm:-right-[230px]
             sm:top-[165px]
-            md:w-[560px]
             md:h-[560px]
+            md:w-[560px]
             md:-right-[230px]
             md:top-[170px]
-            lg:w-[620px]
             lg:h-[620px]
+            lg:w-[620px]
             lg:-right-[120px]
           "
         />
@@ -690,10 +694,7 @@ export default function Hero() {
 
           {/* Carousel */}
 
-          <div className="w-full">
-            <ProjectsCarousel />
-          </div>
-
+         <ProjectsCarousel projects={projects} />
 
           {/* More projects */}
 
@@ -732,6 +733,13 @@ export default function Hero() {
         </div>
 
       </section>
+
+
+      {/* =====================================================
+          ARTICLES
+      ===================================================== */}
+
+   <Articles articles={articles} />
 
 
       {/* =====================================================
@@ -807,7 +815,7 @@ export default function Hero() {
               sm:text-[10px]
             "
           >
-            Contact / 04
+            Contact / 05
           </motion.p>
 
 
@@ -840,7 +848,7 @@ export default function Hero() {
             "
           >
 
-       Let&apos;s build systems
+            Let&apos;s build systems
 
             <br />
 
@@ -906,29 +914,40 @@ export default function Hero() {
 
         </div>
 
+      </section>
 
-        {/* =================================================
-            FOOTER
-        ================================================= */}
 
-        <footer
+      {/* =====================================================
+          FOOTER
+      ===================================================== */}
+
+      <footer
+        className="
+          w-full
+          border-t
+          border-white/[0.08]
+          bg-[#080909]
+        "
+      >
+
+        <div
           className="
             mx-auto
-            mt-20
             flex
             max-w-[1400px]
             flex-col
             gap-3
-            border-t
-            border-white/[0.08]
-            pt-6
+            px-5
+            py-6
             text-[9px]
             text-gray-600
-            sm:mt-24
             sm:flex-row
             sm:items-center
             sm:justify-between
+            sm:px-6
             sm:text-[10px]
+            md:px-12
+            lg:px-16
           "
         >
 
@@ -940,9 +959,9 @@ export default function Hero() {
             Software Engineer · Sri Lanka
           </span>
 
-        </footer>
+        </div>
 
-      </section>
+      </footer>
 
     </main>
   );

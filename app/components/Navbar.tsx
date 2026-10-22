@@ -3,25 +3,37 @@
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const [menu, setMenu] = useState({ open: false, pathname });
+  const menuOpen = menu.open && menu.pathname === pathname;
+  const projectsHref = pathname === "/" ? "#projects" : "/#projects";
+  const contactHref = pathname === "/" ? "#contact" : "/#contact";
 
   const closeMenu = () => {
-    setMenuOpen(false);
+    setMenu({ open: false, pathname });
   };
+
+  if (pathname.startsWith("/studio")) {
+    return null;
+  }
 
   return (
     <header
       className="
-        absolute
+        fixed
         top-0
         left-0
         right-0
         z-50
+        border-b
+        border-white/[0.08]
+        bg-[#080909]/85
+        backdrop-blur-xl
       "
     >
-
       {/* =====================================================
           NAVBAR
       ===================================================== */}
@@ -41,7 +53,6 @@ export default function Navbar() {
           lg:px-16
         "
       >
-
         {/* =================================================
             LOGO
         ================================================= */}
@@ -65,11 +76,8 @@ export default function Navbar() {
           "
         >
           RA
-          <span className="text-[#9BE51D]">
-            .
-          </span>
+          <span className="text-[#9BE51D]">.</span>
         </Link>
-
 
         {/* =================================================
             DESKTOP NAVIGATION
@@ -87,6 +95,7 @@ export default function Navbar() {
             lg:gap-10
           "
         >
+          {/* About */}
 
           <Link
             href="/about"
@@ -100,9 +109,10 @@ export default function Navbar() {
             About Me
           </Link>
 
+          {/* Projects */}
 
           <a
-            href="#projects"
+            href={projectsHref}
             className="
               relative
               py-3
@@ -113,9 +123,24 @@ export default function Navbar() {
             Projects
           </a>
 
+          {/* Articles */}
+
+          <Link
+            href="/articles"
+            className="
+    relative
+    py-3
+    transition-colors
+    hover:text-white
+  "
+            >
+              Articles
+            </Link>
+
+          {/* Contact */}
 
           <a
-            href="#contact"
+            href={contactHref}
             className="
               relative
               py-3
@@ -125,9 +150,7 @@ export default function Navbar() {
           >
             Contact
           </a>
-
         </nav>
-
 
         {/* =================================================
             DESKTOP CTA
@@ -154,18 +177,12 @@ export default function Navbar() {
             sm:inline-flex
           "
         >
-         Let&apos;s talk
+          Let&apos;s talk
 
-          <span
-            className="
-              text-[#9BE51D]
-            "
-          >
+          <span className="text-[#9BE51D]">
             ↗
           </span>
-
         </a>
-
 
         {/* =================================================
             MOBILE MENU BUTTON
@@ -179,7 +196,7 @@ export default function Navbar() {
               : "Open navigation menu"
           }
           aria-expanded={menuOpen}
-          onClick={() => setMenuOpen((open) => !open)}
+          onClick={() => setMenu({ open: !menuOpen, pathname })}
           className="
             flex
             h-10
@@ -199,7 +216,6 @@ export default function Navbar() {
             md:hidden
           "
         >
-
           <span
             className="
               text-lg
@@ -208,20 +224,15 @@ export default function Navbar() {
           >
             {menuOpen ? "×" : "☰"}
           </span>
-
         </button>
-
       </div>
-
 
       {/* =====================================================
           MOBILE MENU
       ===================================================== */}
 
       <AnimatePresence>
-
         {menuOpen && (
-
           <motion.div
             initial={{
               opacity: 0,
@@ -248,7 +259,6 @@ export default function Navbar() {
               md:hidden
             "
           >
-
             <nav
               aria-label="Mobile navigation"
               className="
@@ -259,8 +269,9 @@ export default function Navbar() {
                 sm:px-6
               "
             >
-
-              {/* About */}
+              {/* =================================================
+                  ABOUT
+              ================================================= */}
 
               <Link
                 href="/about"
@@ -287,11 +298,12 @@ export default function Navbar() {
                 </span>
               </Link>
 
-
-              {/* Projects */}
+              {/* =================================================
+                  PROJECTS
+              ================================================= */}
 
               <a
-                href="#projects"
+                href={projectsHref}
                 onClick={closeMenu}
                 className="
                   flex
@@ -315,11 +327,36 @@ export default function Navbar() {
                 </span>
               </a>
 
+              {/* =================================================
+                  ARTICLES
+              ================================================= */}
 
-              {/* Contact */}
+              <Link
+                href="/articles"
+                onClick={closeMenu}
+                className="
+    flex
+    min-h-[48px]
+    items-center
+    justify-between
+    border-b
+    border-white/[0.07]
+    text-sm
+    text-gray-300
+    transition
+    hover:text-white
+  "
+              >
+                <span>Articles</span>
+                <span className="text-gray-600">↗</span>
+              </Link>
+
+              {/* =================================================
+                  CONTACT
+              ================================================= */}
 
               <a
-                href="#contact"
+                href={contactHref}
                 onClick={closeMenu}
                 className="
                   flex
@@ -343,8 +380,9 @@ export default function Navbar() {
                 </span>
               </a>
 
-
-              {/* Mobile CTA */}
+              {/* =================================================
+                  MOBILE CTA
+              ================================================= */}
 
               <a
                 href="mailto:hello@ranindu.dev"
@@ -368,22 +406,16 @@ export default function Navbar() {
                   active:scale-[0.98]
                 "
               >
-               Let&apos;s talk
+                Let&apos;s talk
 
                 <span>
                   ↗
                 </span>
-
               </a>
-
             </nav>
-
           </motion.div>
-
         )}
-
       </AnimatePresence>
-
     </header>
   );
 }
