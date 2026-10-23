@@ -19,8 +19,8 @@ export default defineConfig({
   dataset,
 
   deployment: {
-    appId: 'ujht7qeicsw86us467vkbrlp',
-  },
+  appId: 'l78q1ni48v4oero9caqh1inz',
+},
 
   // Add and edit the content schema in the './sanity/schemaTypes' folder
   schema,
