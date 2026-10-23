@@ -9,7 +9,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const [menu, setMenu] = useState({ open: false, pathname });
   const menuOpen = menu.open && menu.pathname === pathname;
-  const projectsHref = pathname === "/" ? "#projects" : "/#projects";
+  const projectsHref = "/about#projects";
   const contactHref = pathname === "/" ? "#contact" : "/#contact";
 
   const closeMenu = () => {
