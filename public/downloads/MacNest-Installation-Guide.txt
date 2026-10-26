@@ -1,0 +1,76 @@
+                     ========================================
+                                  M A C N E S T
+                                INSTALLATION GUIDE
+                     ========================================
+
+A simpler way to manage your Mac development environment.
+
+
+Thank you for downloading MacNest!
+
+MacNest is a macOS package manager designed to help you manage development tools and packages in one place.
+
+Follow the instructions below to install and open MacNest.
+
+1. INSTALL MACNEST
+
+⸻
+
+1. Open the downloaded MacNest DMG file.
+2. Drag MacNest into the Applications folder if the installer provides this option.
+3. Wait for the application to finish copying.
+4. Eject the mounted MacNest disk image when you’re finished.
+5. OPEN MACNEST
+
+⸻
+
+1. Open Finder.
+2. Navigate to Applications.
+3. Double-click MacNest.
+
+If macOS opens the application normally, you’re ready to go!
+
+3. IF macOS BLOCKS MACNEST
+
+⸻
+
+macOS may display a warning if it cannot verify the developer identity, code signature, or notarization status of an application.
+
+If you see a warning:
+
+1. Select Done to close the warning.
+2. Open the Apple menu.
+3. Select System Settings.
+4. Navigate to Privacy & Security.
+5. Scroll down to the Security section.
+6. Look for a message stating that MacNest was blocked.
+7. If Open Anyway is available, select it.
+8. Authenticate using your password or Touch ID if requested.
+9. Return to Applications and open MacNest again.
+10. Review any confirmation dialog carefully before selecting Open.
+
+IMPORTANT SECURITY INFORMATION
+
+Only continue if you trust the source and have verified that you downloaded MacNest from the official MacNest download page or project repository.
+
+Do not bypass macOS security warnings for applications from unknown sources.
+
+The Open Anyway option may not be available for every type of security restriction.
+
+Code signing and Apple notarization are separate security checks. Properly signed and notarized applications generally install more smoothly, but notarization does not guarantee that software is risk-free.
+
+4. GET HELP
+
+⸻
+
+If you encounter installation problems, visit the official MacNest project repository for documentation, issues, and updates.
+
+GitHub:
+https://github.com/RaninduAmarasinghe/MacNest
+
+Website:
+https://ranindu.dev
+
+Thank you for trying MacNest!
+
+Created by Ranindu Amarasinghe
