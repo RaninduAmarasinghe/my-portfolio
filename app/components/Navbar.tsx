@@ -137,6 +137,14 @@ export default function Navbar() {
               Writing
             </Link>
 
+          <Link
+            href="/macnest"
+            aria-current={pathname === "/macnest" ? "page" : undefined}
+            className="relative py-3 transition-colors hover:text-white"
+          >
+            MacNest
+          </Link>
+
           {/* Contact */}
 
           <a
@@ -379,6 +387,16 @@ export default function Navbar() {
                   ↓
                 </span>
               </a>
+
+              <Link
+                href="/macnest"
+                onClick={closeMenu}
+                aria-current={pathname === "/macnest" ? "page" : undefined}
+                className="flex min-h-[48px] items-center justify-between border-b border-white/[0.07] text-sm text-gray-300 transition hover:text-white"
+              >
+                <span>MacNest</span>
+                <span className="text-gray-600">↗</span>
+              </Link>
 
               {/* =================================================
                   MOBILE CTA
