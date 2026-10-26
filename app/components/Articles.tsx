@@ -53,13 +53,13 @@ export default function Articles({ articles }: ArticlesProps) {
               sm:text-[10px]
             "
           >
-            Articles / 04
+            Writing / 04
           </span>
 
           <div className="h-px flex-1 bg-white/[0.10]" />
 
           <Link
-            href="/articles"
+            href="/writing"
             className="
               hidden
               text-[10px]
@@ -71,7 +71,7 @@ export default function Articles({ articles }: ArticlesProps) {
               sm:block
             "
           >
-            View all articles →
+            View all writing →
           </Link>
 
         </div>
@@ -148,7 +148,7 @@ export default function Articles({ articles }: ArticlesProps) {
 
           </motion.div>
 
-          {/* LATEST 3 */}
+          {/* LATEST WRITING */}
 
           <div className="divide-y divide-white/[0.09]">
 
@@ -190,7 +190,7 @@ export default function Articles({ articles }: ArticlesProps) {
                     {String(index + 1).padStart(2, "0")}
                   </span>
 
-                  {/* ARTICLE */}
+                  {/* WRITING */}
 
                   <div>
 
@@ -305,7 +305,7 @@ export default function Articles({ articles }: ArticlesProps) {
         <div className="mt-8 sm:hidden">
 
           <Link
-            href="/articles"
+            href="/writing"
             className="
               text-xs
               text-gray-500
@@ -313,7 +313,7 @@ export default function Articles({ articles }: ArticlesProps) {
               hover:text-[#9BE51D]
             "
           >
-            View all articles →
+            View all writing →
           </Link>
 
         </div>

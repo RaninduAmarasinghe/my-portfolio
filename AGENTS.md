@@ -1,5 +1,12 @@
-<!-- BEGIN:nextjs-agent-rules -->
-# This is NOT the Next.js you know
+# Portfolio Development Instructions
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
+- Inspect only files relevant to the task.
+- Identify the root cause before fixing bugs.
+- Make the smallest complete change.
+- Follow existing architecture and design conventions.
+- Preserve responsiveness and existing functionality.
+- Avoid unrelated refactoring and unnecessary dependencies.
+- Never invent personal or project details.
+- Run relevant checks once after implementation.
+- Keep explanations concise.
+- Never overwrite user changes or expose secrets.

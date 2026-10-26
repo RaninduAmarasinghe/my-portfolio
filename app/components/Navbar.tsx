@@ -123,10 +123,10 @@ export default function Navbar() {
             Projects
           </a>
 
-          {/* Articles */}
+          {/* Writing */}
 
           <Link
-            href="/articles"
+            href="/writing"
             className="
     relative
     py-3
@@ -134,7 +134,7 @@ export default function Navbar() {
     hover:text-white
   "
             >
-              Articles
+              Writing
             </Link>
 
           {/* Contact */}
@@ -328,11 +328,11 @@ export default function Navbar() {
               </a>
 
               {/* =================================================
-                  ARTICLES
+                  WRITING
               ================================================= */}
 
               <Link
-                href="/articles"
+                href="/writing"
                 onClick={closeMenu}
                 className="
     flex
@@ -347,7 +347,7 @@ export default function Navbar() {
     hover:text-white
   "
               >
-                <span>Articles</span>
+                <span>Writing</span>
                 <span className="text-gray-600">↗</span>
               </Link>
 

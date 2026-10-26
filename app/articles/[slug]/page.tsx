@@ -28,8 +28,8 @@ export default async function ArticlePage({
   return (
     <main className="min-h-screen bg-[#080909] text-white">
       <article className="mx-auto max-w-[820px] px-5 py-20 sm:px-6 sm:py-28">
-        <Link href="/articles" className="text-xs text-gray-500 transition hover:text-[#9BE51D]">
-          ← All articles
+        <Link href="/writing" aria-label="Back to writing" className="text-xs text-gray-500 transition hover:text-[#9BE51D]">
+          ← All writing
         </Link>
         <header className="mt-12 border-b border-white/[0.1] pb-10">
           {article.category && <p className="text-[10px] uppercase tracking-[0.2em] text-[#9BE51D]">{article.category}</p>}
