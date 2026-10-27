@@ -1,4 +1,4 @@
-const DEFAULT_DOWNLOAD_PATH = "/downloads/MacNest_1.0.1_aarch64.dmg";
+const DEFAULT_DOWNLOAD_PATH = "/downloads/MacNest_1.0.2_universal.dmg";
 const DEFAULT_GITHUB_URL = "https://github.com/RaninduAmarasinghe/MacNest";
 const DEFAULT_SITE_URL = "https://ranindu.dev";
 

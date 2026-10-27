@@ -27,7 +27,7 @@ Use `.env.example` as a reference and add the server-only values below to `.env.
 - `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` — create an Upstash Redis database and copy its HTTPS REST endpoint and token from the database console. Both are required before the download API accepts requests.
 - `RESEND_API_KEY` — create a Resend API key with permission to send email.
 - `EMAIL_FROM` — set a sender such as `Ranindu <downloads@your-verified-domain.example>` only after verifying that domain in Resend. Add the sender domain in Resend, publish the DNS records Resend provides, and wait until the dashboard reports it verified. Do not use an address you do not control or a domain that Resend has not verified.
-- `MACNEST_DOWNLOAD_URL` — optional. Defaults to `/downloads/MacNest_1.0.1_aarch64.dmg`, which is the DMG currently in `public/downloads`. For a release-hosted installer, use a stable HTTPS URL that points directly to the current DMG; this is the one configuration location used by the API and email.
+- `MACNEST_DOWNLOAD_URL` — optional. Defaults to `/downloads/MacNest_1.0.2_universal.dmg`, which is the DMG currently in `public/downloads`. For a release-hosted installer, use a stable HTTPS URL that points directly to the current DMG; this is the one configuration location used by the API and email.
 - `MACNEST_GITHUB_URL` — optional; defaults to the existing verified MacNest repository.
 - `SITE_URL` — optional; defaults to `https://ranindu.dev`. Set this to the canonical HTTPS portfolio origin used for email links.
 
