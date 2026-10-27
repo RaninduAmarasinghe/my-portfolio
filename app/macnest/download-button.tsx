@@ -158,7 +158,6 @@ export default function MacNestDownloadButton({ className, label = "Download for
       if (!downloadStartedRef.current) {
         downloadStartedRef.current = true;
         startDownload(data.downloadUrl, "MacNest_1.0.1_universal.dmg");
-        startDownload(installationGuidePath, "MacNest-Installation-Guide.txt");
       }
       setResult(data);
       if (data.emailStatus === "pending") {
@@ -239,7 +238,7 @@ export default function MacNestDownloadButton({ className, label = "Download for
                 <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-[#9BE51D]">MacNest for macOS</p>
                 <h2 id={`${emailId}-title`} className="mt-2.5 text-2xl font-medium tracking-[-0.04em]">You’re all set.</h2>
                 <p id={`${emailId}-description`} className="mt-2.5 text-sm leading-6 text-gray-400">
-                  Thank you for giving MacNest a try! Your DMG and installation guide should be in your Downloads folder. {result.emailStatus === "sent" ? "A confirmation email with the download link and setup details is on its way." : result.emailStatus === "pending" ? "Your confirmation email is still being processed." : result.emailStatus === "recent_request" ? "Hope MacNest makes your development workflow a little smoother!" : "We couldn’t send the confirmation email."}
+                  Thank you for giving MacNest a try! Your MacNest DMG download should be starting now. {result.emailStatus === "sent" ? "A confirmation email with the download link and setup details is on its way." : result.emailStatus === "pending" ? "Your confirmation email is still being processed." : result.emailStatus === "recent_request" ? "Hope MacNest makes your development workflow a little smoother!" : "We couldn’t send the confirmation email."}
                 </p>
                 <a href={installationGuidePath} download="MacNest-Installation-Guide.txt" className="mt-4 inline-flex min-h-8 items-center text-xs text-gray-400 underline decoration-white/20 underline-offset-4 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9BE51D]">Download installation guide</a>
                 <button type="button" onClick={closeDialog} className="mt-6 min-h-11 w-full rounded-full border border-white/[0.12] text-sm text-gray-300 transition hover:border-white/25 hover:bg-white/[0.035] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9BE51D]">Done</button>
