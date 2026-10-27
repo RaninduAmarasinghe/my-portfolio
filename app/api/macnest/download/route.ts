@@ -124,17 +124,19 @@ export async function POST(request: Request) {
     return reply(503, { error: "The MacNest download is temporarily unavailable. Please try again later." });
   }
 
-  const requestIdHash = hash(payload.requestId);
-  const requestKey = `macnest:request:${requestIdHash}`;
-  const lockKey = `macnest:lock:${requestIdHash}`;
-  const idempotencyKey = `macnest-${requestIdHash}`;
-  const resultBody = (emailStatus: "sent" | "failed" | "pending" | "recent_request") => ({
-    accepted: true,
-    downloadUrl,
-    emailStatus,
-  });
-
+  let failureStage = "request idempotency setup";
   try {
+    const requestIdHash = hash(payload.requestId);
+    const requestKey = `macnest:request:${requestIdHash}`;
+    const lockKey = `macnest:lock:${requestIdHash}`;
+    const idempotencyKey = `macnest-${requestIdHash}`;
+    const resultBody = (emailStatus: "sent" | "failed" | "pending" | "recent_request") => ({
+      accepted: true,
+      downloadUrl,
+      emailStatus,
+    });
+
+    failureStage = "rate limit service";
     const cached = await redisCommand<string | null>(["GET", requestKey]);
     if (cached) return reply(200, JSON.parse(cached) as Record<string, unknown>);
 
@@ -186,7 +188,7 @@ export async function POST(request: Request) {
 
     return reply(200, resultBody("pending"));
   } catch {
-    // If the email was already accepted, the cached idempotency record lets a retry recover safely.
+    console.error("MacNest download request failed.", { stage: failureStage });
     return reply(503, { error: "We couldn’t prepare the download just now. Please try again." });
   }
 }

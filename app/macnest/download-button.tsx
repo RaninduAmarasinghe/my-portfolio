@@ -38,8 +38,13 @@ function isDownloadResult(value: unknown): value is DownloadResult {
 }
 
 async function readDownloadResponse(response: Response): Promise<DownloadResponse | null> {
+  const contentType = response.headers.get("content-type")?.toLowerCase() || "";
+  if (!contentType.includes("application/json") && !contentType.includes("+json")) return null;
+
   try {
-    const payload: unknown = await response.json();
+    const text = await response.text();
+    if (!text.trim()) return null;
+    const payload: unknown = JSON.parse(text);
     if (isDownloadResult(payload)) return payload;
     if (isRecord(payload) && typeof payload.error === "string") return { error: payload.error };
     return null;
@@ -145,7 +150,9 @@ export default function MacNestDownloadButton({ className, label = "Download for
           throw new Error("Too many requests from this network. Please wait a little and try again.");
         }
         const responseError = data && "error" in data ? data.error : undefined;
-        throw new Error(responseError || "We couldn’t prepare the download. Please try again.");
+        throw new Error(responseError || (response.status >= 500
+          ? "The download service is temporarily unavailable. Please try again later."
+          : "We couldn’t prepare the download. Please try again."));
       }
 
       if (!downloadStartedRef.current) {
