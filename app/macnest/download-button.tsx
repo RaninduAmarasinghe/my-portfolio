@@ -21,6 +21,32 @@ type Props = {
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const installationGuidePath = "/downloads/MacNest-Installation-Guide.txt";
+const emailStatuses = ["sent", "failed", "pending", "recent_request"] as const;
+
+type DownloadResponse = DownloadResult | { error?: string };
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null;
+}
+
+function isDownloadResult(value: unknown): value is DownloadResult {
+  return isRecord(value)
+    && value.accepted === true
+    && typeof value.downloadUrl === "string"
+    && typeof value.emailStatus === "string"
+    && emailStatuses.some((status) => status === value.emailStatus);
+}
+
+async function readDownloadResponse(response: Response): Promise<DownloadResponse | null> {
+  try {
+    const payload: unknown = await response.json();
+    if (isDownloadResult(payload)) return payload;
+    if (isRecord(payload) && typeof payload.error === "string") return { error: payload.error };
+    return null;
+  } catch {
+    return null;
+  }
+}
 
 function startDownload(url: string, filename: string) {
   const link = document.createElement("a");
@@ -113,12 +139,13 @@ export default function MacNestDownloadButton({ className, label = "Download for
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: normalizedEmail, requestId }),
       });
-      const data = (await response.json()) as DownloadResult & { error?: string };
-      if (!response.ok || !data.accepted || !data.downloadUrl) {
+      const data = await readDownloadResponse(response);
+      if (!response.ok || !data || !("accepted" in data)) {
         if (response.status === 429) {
           throw new Error("Too many requests from this network. Please wait a little and try again.");
         }
-        throw new Error(data.error || "We couldn’t prepare the download. Please try again.");
+        const responseError = data && "error" in data ? data.error : undefined;
+        throw new Error(responseError || "We couldn’t prepare the download. Please try again.");
       }
 
       if (!downloadStartedRef.current) {
@@ -151,8 +178,8 @@ export default function MacNestDownloadButton({ className, label = "Download for
         });
         if (!response.ok) return;
 
-        const data = (await response.json()) as DownloadResult;
-        if (!data.accepted) return;
+        const data = await readDownloadResponse(response);
+        if (!data || !("accepted" in data)) return;
         setResult((current) => current ? { ...current, emailStatus: data.emailStatus } : current);
         if (data.emailStatus !== "pending") return;
       } catch {
