@@ -157,7 +157,8 @@ export default function MacNestDownloadButton({ className, label = "Download for
 
       if (!downloadStartedRef.current) {
         downloadStartedRef.current = true;
-        startDownload(data.downloadUrl, "MacNest_0.1.4_aarch64.dmg");
+        const downloadFilename = decodeURIComponent(new URL(data.downloadUrl, window.location.origin).pathname.split("/").pop() || "MacNest.dmg");
+        startDownload(data.downloadUrl, downloadFilename);
       }
       setResult(data);
       if (data.emailStatus === "pending") {
