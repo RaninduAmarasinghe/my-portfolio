@@ -359,6 +359,25 @@ export default function Navbar() {
                 <span className="text-gray-600">↗</span>
               </Link>
 
+   
+              {/* =================================================
+                  MacNest
+              ================================================= */}
+
+
+
+
+   <Link
+                href="/macnest"
+                onClick={closeMenu}
+                aria-current={pathname === "/macnest" ? "page" : undefined}
+                className="flex min-h-[48px] items-center justify-between border-b border-white/[0.07] text-sm text-gray-300 transition hover:text-white"
+              >
+                <span>MacNest</span>
+                <span className="text-gray-600">↗</span>
+              </Link>
+
+              
               {/* =================================================
                   CONTACT
               ================================================= */}
@@ -388,15 +407,7 @@ export default function Navbar() {
                 </span>
               </a>
 
-              <Link
-                href="/macnest"
-                onClick={closeMenu}
-                aria-current={pathname === "/macnest" ? "page" : undefined}
-                className="flex min-h-[48px] items-center justify-between border-b border-white/[0.07] text-sm text-gray-300 transition hover:text-white"
-              >
-                <span>MacNest</span>
-                <span className="text-gray-600">↗</span>
-              </Link>
+           
 
               {/* =================================================
                   MOBILE CTA
