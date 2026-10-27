@@ -157,7 +157,7 @@ export default function MacNestDownloadButton({ className, label = "Download for
 
       if (!downloadStartedRef.current) {
         downloadStartedRef.current = true;
-        startDownload(data.downloadUrl, "MacNest_1.0.1_universal.dmg");
+        startDownload(data.downloadUrl, "MacNest_0.1.4_aarch64.dmg");
       }
       setResult(data);
       if (data.emailStatus === "pending") {
