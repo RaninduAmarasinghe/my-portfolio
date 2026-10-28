@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
@@ -11,6 +11,16 @@ export default function Navbar() {
   const menuOpen = menu.open && menu.pathname === pathname;
   const projectsHref = "/about#projects";
   const contactHref = pathname === "/" ? "#contact" : "/#contact";
+
+  useEffect(() => {
+    const colorScheme = window.matchMedia("(prefers-color-scheme: light)");
+    const syncTheme = (event?: MediaQueryListEvent) => {
+      document.documentElement.dataset.theme = (event?.matches ?? colorScheme.matches) ? "light" : "dark";
+    };
+    syncTheme();
+    colorScheme.addEventListener("change", syncTheme);
+    return () => colorScheme.removeEventListener("change", syncTheme);
+  }, []);
 
   const closeMenu = () => {
     setMenu({ open: false, pathname });

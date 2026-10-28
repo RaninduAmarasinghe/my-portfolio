@@ -2,8 +2,19 @@
 
 /* Theme Variables */
 :root {
+  color-scheme: dark;
   --background: #0d0d0d;
   --foreground: #ededed;
+  --surface: #080909;
+  --line: rgba(255, 255, 255, 0.12);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --background: #FFFFF0;
+  --foreground: #20211d;
+  --surface: #FFFFF0;
+  --line: rgba(36, 38, 30, 0.16);
 }
 
 /* Optional Tailwind theme mapping */
@@ -29,5 +40,34 @@ body {
 /* Selection color (nice UI touch) */
 ::selection {
   background: #22c55e33;
-  color: white;
+  color: var(--foreground);
 }
+
+/* Keep the existing dark palette intact while remapping its utility colors
+   when the user selects the light appearance. */
+:root[data-theme="light"] body { background: var(--background); color: var(--foreground); }
+:root[data-theme="light"] [class*="bg-[#080909]"],
+:root[data-theme="light"] [class*="bg-[#070808]"],
+:root[data-theme="light"] [class*="bg-[#0c0f10]"],
+:root[data-theme="light"] [class*="bg-[#0d1011]"],
+:root[data-theme="light"] [class*="bg-[#101211]"],
+:root[data-theme="light"] [class*="bg-[#111313]"],
+:root[data-theme="light"] [class*="bg-[#15191a]"],
+:root[data-theme="light"] [class*="bg-[#181c1e]"] { background-color: var(--surface) !important; }
+:root[data-theme="light"] [class*="text-white"],
+:root[data-theme="light"] [class*="text-gray-100"],
+:root[data-theme="light"] [class*="text-gray-200"],
+:root[data-theme="light"] [class*="text-gray-300"] { color: #20251b !important; }
+:root[data-theme="light"] [class*="text-gray-400"],
+:root[data-theme="light"] [class*="text-gray-500"] { color: #596052 !important; }
+:root[data-theme="light"] [class*="text-gray-600"],
+:root[data-theme="light"] [class*="text-gray-700"] { color: #737a6b !important; }
+:root[data-theme="light"] [class*="text-[#9BE51D]"] { color: #557a08 !important; }
+:root[data-theme="light"] [class*="border-white"] { border-color: var(--line) !important; }
+:root[data-theme="light"] [class*="hover:text-white"]:hover { color: #171a14 !important; }
+:root[data-theme="light"] [class*="bg-white/[0.018]"],
+:root[data-theme="light"] [class*="bg-white/[0.025]"],
+:root[data-theme="light"] [class*="bg-white/[0.035]"],
+:root[data-theme="light"] [class*="bg-black/20"] { background-color: rgba(25, 35, 15, 0.035) !important; }
+:root[data-theme="light"] [class*="bg-[linear-gradient(to_right,rgba(255,255,255"] { opacity: 0.35; }
+:root[data-theme="light"] a, :root[data-theme="light"] button { -webkit-tap-highlight-color: transparent; }
