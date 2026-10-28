@@ -271,8 +271,8 @@ export default function AboutClient({
                   text-gray-400
                 "
               >
-                I design and build backend systems with Java,
-                Spring Boot and modern AI technologies.
+               Exploring new technologies, solving engineering challenges, 
+               and building software that matters.
               </p>
 
               <p
@@ -287,9 +287,9 @@ export default function AboutClient({
                   text-gray-600
                 "
               >
-                I enjoy turning ideas into practical software,
-                solving engineering problems, and continuously
-                improving through real-world projects.
+           I’m a Software Engineer passionate about building reliable backend systems, real-time applications, and AI-powered solutions. My primary focus is Java and Spring Boot, where I enjoy designing REST APIs, implementing secure authentication, and developing systems that are built to scale and remain maintainable.<br></br><br></br>
+            I enjoy turning ideas into practical software. I’m also exploring AI integration, LLMs, and workflow automation to create smarter applications that solve real-world problems.<br></br><br></br>
+           I believe good software is more than code that works. It’s software that’s thoughtfully designed, easy to maintain, and built with a clear purpose.
               </p>
             </motion.div>
 

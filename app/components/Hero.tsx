@@ -304,9 +304,7 @@ export default function Hero({
                     md:leading-7
                   "
                 >
-                  I build backend systems using Java and Spring
-                  Boot, with a focus on scalable applications,
-                  automation, and real-world impact.
+              I build reliable software with a focus on scalability, automation, and solving real-world problems.
                 </p>
 
 
